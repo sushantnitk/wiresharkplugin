@@ -1,0 +1,1 @@
+tshark  -r ezsniffer20101116.pcap -R "msqq"  -t  e  -T fields -e frame.number -e frame.time  -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e msqq.qqNumber -e msqq.Length  -e msqq.Version   -e msqq.Command  -e msqq.Sequence     -E  separator=, > aa.csv

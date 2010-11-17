@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 #coding=utf-8
-#¶ÁÈ¡pcapÎÄ¼ş£¬½âÎöÏàÓ¦µÄĞÅÏ¢£¬ÎªÁËÔÚ¼ÇÊÂ±¾ÖĞÏÔÊ¾µÄ·½±ã£¬°Ñ¶ş½øÖÆµÄĞÅÏ¢
+#è¯»å–pcapæ–‡ä»¶ï¼Œè§£æç›¸åº”çš„ä¿¡æ¯ï¼Œä¸ºäº†åœ¨è®°äº‹æœ¬ä¸­æ˜¾ç¤ºçš„æ–¹ä¾¿ï¼ŒæŠŠäºŒè¿›åˆ¶çš„ä¿¡æ¯
 
 import struct
 
-fpcap = open('test.pcap','rb')
-ftxt = open('result.txt','w')
+fpcap = open('ezsniffer.cap','rb')
+ftxt = open('result.cap','w')
 
 string_data = fpcap.read()
 
-#pcapÎÄ¼ş°üÍ·½âÎö
+#pcapæ–‡ä»¶åŒ…å¤´è§£æ
 pcap_header = {}
 pcap_header['magic_number'] = string_data[0:4]
 pcap_header['version_major'] = string_data[4:6]
@@ -18,47 +18,41 @@ pcap_header['thiszone'] = string_data[8:12]
 pcap_header['sigfigs'] = string_data[12:16]
 pcap_header['snaplen'] = string_data[16:20]
 pcap_header['linktype'] = string_data[20:24]
-#°ÑpacpÎÄ¼şÍ·ĞÅÏ¢Ğ´Èëresult.txt
-ftxt.write("PcapÎÄ¼şµÄ°üÍ·ÄÚÈİÈçÏÂ£º \n")
+#æŠŠpacpæ–‡ä»¶å¤´ä¿¡æ¯å†™å…¥result.txt
+#ftxt.write("Pcapæ–‡ä»¶çš„åŒ…å¤´å†…å®¹å¦‚ä¸‹ï¼š \n")
 for key in ['magic_number','version_major','version_minor','thiszone',
             'sigfigs','snaplen','linktype']:
-    ftxt.write(key+ " : " + repr(pcap_header[key])+'\n')
+    ftxt.write(pcap_header[key])
           
 
-#pcapÎÄ¼şµÄÊı¾İ°ü½âÎö
+#pcapæ–‡ä»¶çš„æ•°æ®åŒ…è§£æ
 step = 0
 packet_num = 0
-packet_data = []
+packet_data = None
 
 pcap_packet_header = {}
 i =24
 
 while(i<len(string_data)):
      
-      #Êı¾İ°üÍ·¸÷¸ö×Ö¶Î
+      #æ•°æ®åŒ…å¤´å„ä¸ªå­—æ®µ
       pcap_packet_header['GMTtime'] = string_data[i:i+4]
       pcap_packet_header['MicroTime'] = string_data[i+4:i+8]
       pcap_packet_header['caplen'] = string_data[i+8:i+12]
       pcap_packet_header['len'] = string_data[i+12:i+16]
-      #Çó³ö´Ë°üµÄ°ü³¤len
-      packet_len = struct.unpack('I',pcap_packet_header['len'])[0]
-      #Ğ´Èë´Ë°üÊı¾İ
-      packet_data.append(string_data[i+16:i+16+packet_len])
+      #æ±‚å‡ºæ­¤åŒ…çš„åŒ…é•¿len
+      packet_len = struct.unpack('I',pcap_packet_header['caplen'])[0]
+      #å†™å…¥æ­¤åŒ…æ•°æ®
+      packet_data=string_data[i+16:i+16+packet_len]
       i = i+ packet_len+16
+      print 'packet length:  '+repr(packet_len)
       packet_num+=1
+      print 'packet number:  '+repr(packet_num)
+      for key in ['GMTtime','MicroTime','caplen','len']:
+          ftxt.write(pcap_packet_header[key])
+      ftxt.write(packet_data)
+      packet_data = None
+      pcap_packet_header = {}
    
-   
-   
-   
-#°ÑpacpÎÄ¼şÀïµÄÊı¾İ°üĞÅÏ¢Ğ´Èëresult.txt
-for i in range(packet_num):
-    #ÏÈĞ´Ã¿Ò»°üµÄ°üÍ·
-    ftxt.write("ÕâÊÇµÚ"+str(i)+"°üÊı¾İµÄ°üÍ·ºÍÊı¾İ£º"+'\n')
-    for key in ['GMTtime','MicroTime','caplen','len']:
-        ftxt.write(key+' : '+repr(pcap_packet_header[key])+'\n')
-    #ÔÙĞ´Êı¾İ²¿·Ö
-    ftxt.write('´Ë°üµÄÊı¾İÄÚÈİ'+repr(packet_data[i])+'\n')
-ftxt.write('Ò»¹²ÓĞ'+str(packet_num)+"°üÊı¾İ"+'\n')
-      
 ftxt.close()
 fpcap.close()

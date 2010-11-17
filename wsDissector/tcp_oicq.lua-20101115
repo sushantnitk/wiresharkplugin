@@ -1,0 +1,75 @@
+-- 定义协议，可以在wireshark中使用MobileQQ过滤
+MobileQQ_proto = Proto("MobileQQ","MobileQQ","MobileQQ Protocol")
+-- dissector函数
+function MobileQQ_proto.dissector(buffer,pinfo,tree)
+    --dissector函数
+	--qqcommand = { "Logout"=1,"HeartMessage"=2}
+	qqcommand  = {
+		Logout=1,
+		HeartMessage=2,
+		UpdateUserinformation=4,
+		Searchuser=5,
+		GetUserinformationBroadcast=6,
+		Addfriendnoauth=9,
+		Deleteuser=10,
+		Addfriendbyauth=11,
+		Setstatus=13,
+		Confirmationofreceivingmessagefromserver=18,
+		Sendmessage=22,
+		Receivemessage=23,
+		Retrieveinformation=24,
+		HeartMessage=26,
+		DeleteMe=28,
+		RequestKEY=29,
+		CellPhone=33,
+		Login=34,
+		Getfriendlist=38,
+		Getfriendonline=39,
+		CellPHONE=41,
+		Operationongroup=48,
+		Logintest=49,
+		Groupnameoperation=60,
+		Uploadgroupfriend=61,
+		MEMOOperation=62,
+		Downloadgroupfriend=88,
+		Getlevel=92,
+		Requestlogin=98,
+		Requestextrainformation=101,
+		Signatureoperation=103,
+		Receivesystemmessage=128,
+		Getstatusoffriend=129,
+		Getfriendsstatusofgroup=181
+}
+
+    --pinfo的成员可以参考用户手册
+	--1626264559
+    pinfo.cols.protocol = "MobileQQ"
+    pinfo.cols.info = "MobileQQ data"
+    local subtree = tree:add(MobileQQ_proto,buffer(),"MobileQQ Protocol")
+    --Flag对应1字节
+    subtree:add(buffer(0,1),"Flag: ".. buffer(0,1):uint())
+	--Length对应2,3字节
+    subtree:add(buffer(1,2),"Length: ".. buffer(1,2):uint())
+	--Version对应4,5字节
+    subtree:add(buffer(3,2),"Version: " .. buffer(3,2):uint())
+	--Command对应6,7字节
+    types = buffer(5,2):uint()
+	--type_str=qqcommand[type]
+	type_str = types
+	for key, value in pairs(qqcommand) do 
+		if types == value then
+		   type_str = key
+		end
+	end
+    subtree:add(buffer(5,2), "Command：" ..type_str)
+	--Sequence对应8,9字节
+	subtree:add(buffer(7,2),"Sequence: " .. buffer(7,2):uint())
+    --qqNumber对应10,11,12,13字节
+	subtree:add(buffer(9,4),"qqNumber: " .. buffer(9,4):uint())
+    --从6字节开始是数据
+    size = buffer:len()
+    subtree:add(buffer(13,size-13), "Data: ".. buffer(13,size-13))
+end
+tcp_table = DissectorTable.get("tcp.port")
+--注册到tcp的8888端口
+tcp_table:add(14000,MobileQQ_proto)

@@ -1,5 +1,19 @@
 @echo on 
 
+@echo 1.多台电脑上的pcap文件按照时间合并......
+
+mergecap -v -T ether -w  I:\McFile2\mc.cap I:\McFile2\mc*.cap
+
+@echo 2.分割成大小相同的文件......
+
+editcap mc.cap -c 2000000 mc_mergefile.cap
+
+@echo continue......
+
+pause
+
+@echo 3.重新组包......
+
 D:\ScapyProject\mc_split_v2.py mc_mergefile_00000_20101129195854.cap
 D:\ScapyProject\mc_split_v2.py mc_mergefile_00001_20101129200721.cap
 D:\ScapyProject\mc_split_v2.py mc_mergefile_00002_20101129201534.cap
@@ -9,6 +23,7 @@ D:\ScapyProject\mc_split_v2.py mc_mergefile_00005_20101129204028.cap
 D:\ScapyProject\mc_split_v2.py mc_mergefile_00006_20101129204846.cap
 D:\ScapyProject\mc_split_v2.py mc_mergefile_00007_20101129205705.cap
 
+@echo 4.过滤h.248等不需要的文件......
 
 tshark -R "m3ua.protocol_data_si==SCCP || m3ua.protocol_data_si==ISUP" -r mm_mc_mergefile_00000_20101129195854.cap -w mc_merge_split_filter_0000.pcap
 tshark -R "m3ua.protocol_data_si==SCCP || m3ua.protocol_data_si==ISUP" -r mm_mc_mergefile_00001_20101129200721.cap -w mc_merge_split_filter_0001.pcap
@@ -19,7 +34,8 @@ tshark -R "m3ua.protocol_data_si==SCCP || m3ua.protocol_data_si==ISUP" -r mm_mc_
 tshark -R "m3ua.protocol_data_si==SCCP || m3ua.protocol_data_si==ISUP" -r mm_mc_mergefile_00006_20101129204846.cap -w mc_merge_split_filter_0006.pcap
 tshark -R "m3ua.protocol_data_si==SCCP || m3ua.protocol_data_si==ISUP" -r mm_mc_mergefile_00007_20101129205705.cap -w mc_merge_split_filter_0007.pcap
 
-@echo finished
+@echo convert finished!
+
 pause
 
 

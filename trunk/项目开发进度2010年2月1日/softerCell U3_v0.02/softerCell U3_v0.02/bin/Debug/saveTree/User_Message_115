@@ -1,0 +1,16 @@
+User_Message_115
+ 0  2010-01-15 16:39:53.026  115  11065  11039  GSM  Location Updating Request (0x08)  0x1e081a      0x7407bab3  681  A551  TMSI/P-TMSI (4)             
+ 0  2010-01-15 16:39:53.038  124  11039  11065  SCCP  Connection Confirm (0x02)  0x4ad501  0x1e081a                       
+ 0  2010-01-15 16:39:53.038  125  11039  11065  GSM  Identity Request (0x18)    0x1e081a          IMSI             
+ 0  2010-01-15 16:39:53.416  342  11065  11039  GSM  Identity Response (0x19)    0x4ad501          IMSI (1)  460002558104217           
+ 0  2010-01-15 16:39:53.428  354  11039  11065  RANAP  id-CommonID (15)    0x1e081a  460002558104217                     
+ 0  2010-01-15 16:39:53.698  548  11039  11065  GSM  Authentication Request (0x12)    0x1e081a                       
+ 0  2010-01-15 16:39:54.296  878  11065  11039  GSM  Authentication Response (0x14)    0x4ad501                       
+ 0  2010-01-15 16:39:54.708  1129  11039  11065  GSM  Identity Request (0x18)    0x1e081a          IMEI             
+ 0  2010-01-15 16:39:55.096  1331  11065  11039  GSM  Identity Response (0x19)    0x4ad501          IMEI (2)  860199001055260           
+ 0  2010-01-15 16:39:55.108  1336  11039  11065  GSM  Location Updating Accept (0x02)    0x1e081a    0x977115dc      TMSI/P-TMSI (4)             
+ 0  2010-01-15 16:39:55.426  1499  11065  11039  GSM  TMSI Reallocation Complete (0x1b)    0x4ad501                       
+ 0  2010-01-15 16:39:55.438  1506  11039  11065  RANAP  id-Iu-Release (1)    0x1e081a                nAS (2)       
+ 0  2010-01-15 16:39:55.466  1517  11065  11039  RANAP  id-Iu-Release (1)    0x4ad501                       
+ 0  2010-01-15 16:39:55.488  1522  11039  11065  SCCP  Released (0x04)  0x4ad501  0x1e081a                End user originated (0x00)       
+ 0  2010-01-15 16:39:55.536  1544  11065  11039  SCCP  Release Complete (0x05)  0x1e081a  0x4ad501                       

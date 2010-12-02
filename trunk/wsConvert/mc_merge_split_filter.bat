@@ -1,8 +1,12 @@
 @echo on 
 
+@echo 0.进入目录
+
+cd K:\寻呼项目—范茂鑫\SZ_1201_08A
+
 @echo 1.多台电脑上的pcap文件按照时间合并......
 
-mergecap -v -T ether -w  I:\McFile2\mc.cap I:\McFile2\mc*.cap
+mergecap -v -T ether -w  mc.cap CE*.cap
 
 @echo 2.分割成大小相同的文件......
 

@@ -5,7 +5,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[msqqBulk]') AND type in (N'U'))
 DROP TABLE [dbo].[msqqBulk]
 GO
-CREATE TABLE msqqBulk 
+CREATE TABLE msqqBulk2 
 ( 
  frame_number  int,
  frame_time  VARCHAR(32),
@@ -24,7 +24,7 @@ CREATE TABLE msqqBulk
 
 use [msqq]
 GO
-BULK INSERT msqqBulk 
+BULK INSERT msqqBulk2 
     FROM 'G:\chensheng\QQ抓包测试\心跳\aa.csv' 
     WITH 
     ( 
@@ -32,5 +32,5 @@ BULK INSERT msqqBulk
         ROWTERMINATOR = '\n' 
     )
 	
-update msqqBulk set message_type='心跳' where message_type='4'
+update msqqBulk2 set message_type='心跳' where message_type='4'
     

@@ -1,0 +1,47 @@
+User_Message_839
+ 2010-01-15 16:39:54.253  839  11077  11039  GSM  CM Service Request (0x24)  0x030828      0x8a08ca42  693  A55D  TMSI/P-TMSI (4)             
+ 2010-01-15 16:39:54.281  861  11039  11077  SCCP  Connection Confirm (0x02)  0xa8c701  0x030828                       
+ 2010-01-15 16:39:54.281  862  11039  11077  RANAP  id-CommonID (15)    0x030828  460077107825739                     
+ 2010-01-15 16:39:54.281  864  11039  11077  GSM  Identity Request (0x18)    0x030828          IMEI             
+ 2010-01-15 16:39:54.459  964  11077  11039  GSM  Identity Response (0x19)    0xa8c701          IMEI (2)             
+ 2010-01-15 16:39:54.471  980  11039  11077  GSM  CM Service Accept (0x21)    0x030828                       
+ 2010-01-15 16:39:54.639  1093  11077  11039  GSM  Register (0x3b)    0xa8c701                       
+ 2010-01-15 16:39:54.651  1101  11039  11077  GSM  Release Complete (0x2a)    0x030828                operatorBarring (1)       
+ 2010-01-15 16:39:54.651  1102  11039  11077  RANAP  id-Iu-Release (1)    0x030828                nAS (2)       
+ 2010-01-15 16:39:54.679  1117  11077  11039  RANAP  id-Iu-Release (1)    0xa8c701                       
+ 2010-01-15 16:39:54.701  1122  11039  11077  SCCP  Released (0x04)  0xa8c701  0x030828                End user originated (0x00)       
+ 2010-01-15 16:39:54.719  1136  11077  11039  SCCP  Release Complete (0x05)  0x030828  0xa8c701                       
+ 2010-01-15 16:39:57.849  2840  11077  11039  GSM  CM Service Request (0x24)  0x040219      0x8a08ca42  693  A55D  TMSI/P-TMSI (4)             
+ 2010-01-15 16:39:57.861  2848  11039  11077  SCCP  Connection Confirm (0x02)  0x6ff001  0x040219                       
+ 2010-01-15 16:39:57.861  2849  11039  11077  RANAP  id-CommonID (15)    0x040219  460077107825739                     
+ 2010-01-15 16:39:57.861  2850  11039  11077  GSM  Authentication Request (0x12)    0x040219                       
+ 2010-01-15 16:39:58.169  3045  11077  11039  GSM  Authentication Response (0x14)    0x6ff001                       
+ 2010-01-15 16:39:58.187  3055  11039  11077  GSM  Identity Request (0x18)    0x040219          IMEI             
+ 2010-01-15 16:39:58.352  3149  11077  11039  GSM  Identity Response (0x19)    0x6ff001          IMEI (2)             
+ 2010-01-15 16:39:58.371  3160  11039  11077  GSM  CM Service Accept (0x21)    0x040219                       
+ 2010-01-15 16:39:58.569  3276  11077  11039  GSM  Setup (0x05)    0x6ff001            10086           
+ 2010-01-15 16:39:58.581  3283  11039  11077  GSM  Call Proceeding (0x02)    0x040219                       
+ 2010-01-15 16:39:58.621  3314  11039  11077  RANAP  id-RAB-Assignment (0)    0x040219                       
+ 2010-01-15 16:39:59.939  4121  11077  11039  RANAP  id-RAB-Assignment (0)    0x6ff001                       
+ 2010-01-15 16:40:01.211  4854  11039  11077  GSM  Alerting (0x01)    0x040219                       
+ 2010-01-15 16:40:01.291  4889  11039  11077  GSM  Connect (0x07)    0x040219                       
+ 2010-01-15 16:40:01.609  5060  11077  11039  GSM  Connect Acknowledge (0x0f)    0x6ff001                       
+ 2010-01-15 16:40:05.059  6991  11077  11039  GSM  Disconnect (0x25)    0x6ff001                       
+ 2010-01-15 16:40:05.071  6998  11039  11077  GSM  Release (0x2d)    0x040219                       
+ 2010-01-15 16:40:05.409  7197  11077  11039  GSM  Release Complete (0x2a)    0x6ff001                       
+ 2010-01-15 16:40:05.421  7206  11039  11077  RANAP  id-Iu-Release (1)    0x040219                nAS (2)       
+ 2010-01-15 16:40:05.479  7230  11077  11039  RANAP  id-Iu-Release (1)    0x6ff001                       
+ 2010-01-15 16:40:05.491  7235  11039  11077  SCCP  Released (0x04)  0x6ff001  0x040219                End user originated (0x00)       
+ 2010-01-15 16:40:05.529  7258  11077  11039  SCCP  Release Complete (0x05)  0x040219  0x6ff001                       
+ 2010-01-15 16:40:07.236  8117  11077  11039  GSM  CM Service Request (0x24)  0x0306ff      0x8a08ca42  693  A55D  TMSI/P-TMSI (4)             
+ 2010-01-15 16:40:07.251  8132  11039  11077  SCCP  Connection Confirm (0x02)  0xee7b02  0x0306ff                       
+ 2010-01-15 16:40:07.251  8133  11039  11077  RANAP  id-CommonID (15)    0x0306ff  460077107825739                     
+ 2010-01-15 16:40:07.251  8134  11039  11077  GSM  Identity Request (0x18)    0x0306ff          IMEI             
+ 2010-01-15 16:40:07.436  8194  11077  11039  GSM  Identity Response (0x19)    0xee7b02          IMEI (2)             
+ 2010-01-15 16:40:07.451  8206  11039  11077  GSM  CM Service Accept (0x21)    0x0306ff                       
+ 2010-01-15 16:40:07.656  8304  11077  11039  GSM  Register (0x3b)    0xee7b02                       
+ 2010-01-15 16:40:07.672  8311  11039  11077  GSM  Release Complete (0x2a)    0x0306ff                operatorBarring (1)       
+ 2010-01-15 16:40:07.672  8312  11039  11077  RANAP  id-Iu-Release (1)    0x0306ff                nAS (2)       
+ 2010-01-15 16:40:07.706  8342  11077  11039  RANAP  id-Iu-Release (1)    0xee7b02                       
+ 2010-01-15 16:40:07.721  8359  11039  11077  SCCP  Released (0x04)  0xee7b02  0x0306ff                End user originated (0x00)       
+ 2010-01-15 16:40:07.746  8378  11077  11039  SCCP  Release Complete (0x05)  0x0306ff  0xee7b02                       

@@ -1,0 +1,175 @@
+Line	 
+1	-- Split trace based on SCCP Source
+2	do
+3	        local function init_listener()
+4	                print("CREATED LISTENER")
+5	                local tap = Listener.new("ip", "sccp && (ip.src == 172.16.1.81 || ip.dst == 172.16.1.81)")
+6	                local sccp_type_field = Field.new("sccp.message_type")
+7	                local sccp_src_field = Field.new("sccp.slr")
+8	                local sccp_dst_field = Field.new("sccp.dlr")
+9	                local msg_type_field = Field.new("gsm_a.dtap_msg_mm_type")
+10	                local lu_rej_field = Field.new("gsm_a.dtap.rej_cause")
+11	                local ip_src_field = Field.new("ip.src")
+12	                local ip_dst_field = Field.new("ip.dst")
+13	
+14	                --
+15	                local bssmap_msgtype_field = Field.new("gsm_a.bssmap_msgtype")
+16	                -- assignment failure 0x03
+17	                --
+18	
+19	                --
+20	                local dtap_cause_field = Field.new("gsm_a_dtap.cause")
+21	                local dtap_cc_field = Field.new("gsm_a.dtap_msg_cc_type")
+22	
+23	                local connections = {}
+24	
+25	                function check_failure(con)
+26	                        check_lu_reject(con)
+27	                        check_disconnect(con)
+28	                        check_ass_failure(con)
+29	                        check_cipher_reject(con)
+30	                end
+31	
+32	                -- cipher mode reject
+33	                function check_cipher_reject(con)
+34	                        local msgtype = bssmap_msgtype_field()
+35	                        if not msgtype then
+36	                                return
+37	                        end
+38	
+39	                        if tonumber(msgtype) == 89 then
+40	                                con[4] = true
+41	                        end
+42	                end
+43	
+44	                -- check assignment failures
+45	                function check_ass_failure(con)
+46	                        local msgtype = bssmap_msgtype_field()
+47	                        if not msgtype then
+48	                                return
+49	                        end
+50	
+51	                        if tonumber(msgtype) == 0x03 then
+52	                                con[4] = true
+53	                        end
+54	                end
+55	
+56	                -- check if a DISCONNECT is normal
+57	                function check_disconnect(con)
+58	                        local msg_type = dtap_cc_field()
+59	                        if not msg_type then
+60	                                return
+61	                        end
+62	
+63	                        if tonumber(msg_type) ~= 0x25 then
+64	                                return
+65	                        end
+66	
+67	                        local cause = dtap_cause_field()
+68	                        if not cause then
+69	                                return
+70	                        end
+71	
+72	                        cause = tonumber(cause)
+73	                        if cause ~= 0x10 then
+74	                                print("DISCONNECT != Normal")
+75	                                con[4] = true
+76	                        end
+77	                end
+78	
+79	                -- check if we have a LU Reject
+80	                function check_lu_reject(con)
+81	                        local msg_type =  msg_type_field()
+82	                        if not msg_type then
+83	                                return
+84	                        end
+85	
+86	                        msg_type = tonumber(tostring(msg_type))
+87	                        if msg_type == 0x04 then
+88	                                print("LU REJECT with " .. tostring(lu_rej_field()))
+89	                                con[4] = true
+90	                        end
+91	                end
+92	
+93	                function tap.packet(pinfo,tvb,ip)
+94	                        local ip_src = tostring(ip_src_field())
+95	                        local ip_dst = tostring(ip_dst_field())
+96	                        local sccp_type = tonumber(tostring(sccp_type_field()))
+97	                        local sccp_src = sccp_src_field()
+98	                        local sccp_dst = sccp_dst_field()
+99	
+100	                        local con
+101	
+102	                        if sccp_type == 0x01 then
+103	                        elseif sccp_type == 0x2 then
+104	                                local src = string.format("%s-%s", ip_src, tostring(sccp_src))
+105	                                local dst = string.format("%s-%s", ip_dst, tostring(sccp_dst))
+106	                                local datestring = os.date("%Y%m%d%H%M%S")
+107	                                local pcap_name = string.format("alink_trace_%s-%s_%s.pcap", src, dst, datestring)
+108	                                local dumper = Dumper.new_for_current(pcap_name)
+109	
+110	                                local con = { ip_src, tostring(sccp_src), tostring(sccp_dst), false, dumper, pcap_name }
+111	
+112	                                dumper:dump_current()
+113	                                connections[src] = con
+114	                                connections[dst] = con
+115	                        elseif sccp_type == 0x4 then
+116	                                -- close a connection... remove it from the list
+117	                                local src = string.format("%s-%s", ip_src, tostring(sccp_src))
+118	                                local dst = string.format("%s-%s", ip_dst, tostring(sccp_dst))
+119	
+120	                                local con = connections[src]
+121	                                if not con then
+122	                                        return
+123	                                end
+124	
+125	                                con[5]:dump_current()
+126	                                con[5]:flush()
+127	
+128	                                -- this causes a crash on unpacted wireshark
+129	                                con[5]:close()
+130	
+131	                                -- the connection had a failure
+132	                                if con[4] == true then
+133	                                        local datestring = os.date("%Y%m%d%H%M%S")
+134	                                        local new_name = string.format("alink_failure_%s_%s-%s.pcap", datestring, con[2], con[3])
+135	                                        os.rename(con[6], new_name)
+136	                                else
+137	                                        os.remove(con[6])
+138	                                end
+139	
+140	
+141	                                -- clear the old connection
+142	                                connections[src] = nil
+143	                                connections[dst] = nil
+144	
+145	                        elseif sccp_type == 0x5 then
+146	                                -- not handled yet... we should verify stuff here...
+147	                                local dst = string.format("%s-%s", ip_dst, tostring(sccp_dst))
+148	                                local con = connections[dst]
+149	                                if not con then
+150	                                        return
+151	                                end
+152	                                con[5]:dump_current()
+153	                        elseif sccp_type == 0x6 then
+154	                                local dst = string.format("%s-%s", ip_dst, tostring(sccp_dst))
+155	                                local con = connections[dst]
+156	                                if not con then
+157	                                        print("DON'T KNOW THIS CONNECTION for " .. ip_dst)
+158	                                        return
+159	                                end
+160	                                con[5]:dump_current()
+161	                                check_failure(con)
+162	                        end
+163	
+164	                end
+165	                function tap.draw()
+166	                        print("DRAW")
+167	                end
+168	                function tap.reset()
+169	                        print("RESET")
+170	                end
+171	        end
+172	
+173	        init_listener()
+174	end

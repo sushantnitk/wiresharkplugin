@@ -6,7 +6,9 @@
 @echo expert.group 	Unsigned 32-bit integer 	Group 	1.2.0 to 1.4.2
 @echo expert.message 	String 	Message 	1.2.0 to 1.4.2
 @echo expert.severity 	Unsigned 32-bit integer 	Severity level 	1.2.0 to 1.4.2
-
+@echo tshark -r  mc.cap -V -t  e  -T fields -e frame.number -e frame.time -e frame.time_relative -e sccp.message_type -Ttext
+@echo tshark -r mc.cap -o column.format:'"No.", "%m", "Info", "%i"'
+@echo tshark -r mc.cap  -o column.format:'"Source", "%s","Destination", "%d"' -Ttext
 
 @echo on
 set port= 

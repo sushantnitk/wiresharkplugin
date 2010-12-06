@@ -27,7 +27,9 @@ tshark  -T pdml -r "j:\1.pcap"  | perl -ane ' <at> flist=qw(m3ua.protocol_data_o
 foreach $f ( <at> flist) {\
  if(/field name=\"$f\".*show=\"(.*?)\".*/){print "$f:$1,";}}'
 
-Tshark -r f:\t.pcap -X lua_script:trace_stats.lua -q
+tshark -r f:\t.pcap -X lua_script:trace_stats.lua -q
+
+tshark -i 3 -X lua_script:rpc_response_time.lua -q
 
 tshark -r f:\t.pcap  -t ad -V -n frame.number==11 
 

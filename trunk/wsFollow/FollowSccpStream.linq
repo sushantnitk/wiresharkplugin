@@ -53,11 +53,27 @@ foreach(LINQPad.User.LA_update i in totalMessge)
     }
 }
 }
+dFlow.Count().Dump();
+dConn.Count().Dump();
 var  connLookup = dFlow.ToLookup(e=>e.Value);
-foreach ( var i in connLookup)
+Dictionary<string,string> _dConn = new Dictionary<string,string>();
+foreach (var i in connLookup)
 {
     var nLst=i.Select(e=>e.Key);
-	totalMessge.Where(e=>nLst.Contains(e.PacketNum)).Dump();
-    //foreach(int n in nLst)
-    //totalMessge.Where (e=>e.PacketNum==n).Dump();
+	var nFlow=totalMessge.Where(e=>nLst.Contains(e.PacketNum));
+	var sccp=nFlow.Where(e=>e.Ip_version_MsgType=="SCCP.Release Complete").FirstOrDefault();
+	var nKey=i.Select(e=>e.Value).FirstOrDefault();
+	if(sccp!=null)
+	   {
+	     //此处开始做分析统计？yes?
+	     foreach(var n in dConn)
+	        if(n.Value==nKey)
+	            _dConn.Add(n.Key,"");
+	     foreach(var n in _dConn)
+	        dConn.Remove(n.Key);
+         foreach(int n in nLst)
+	        dFlow.Remove(n);
+	   }
 }
+dFlow.Count().Dump();
+dConn.Count().Dump();

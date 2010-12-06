@@ -56,6 +56,7 @@
             this.msLocationUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msOriginalCallSqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msTerminalCallSqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.isupCallFlowSqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -63,7 +64,6 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.isupCallFlowSqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -278,6 +278,13 @@
             this.msTerminalCallSqlToolStripMenuItem.Text = "msTerminalCallSql";
             this.msTerminalCallSqlToolStripMenuItem.Click += new System.EventHandler(this.msTerminalCallSqlToolStripMenuItem_Click);
             // 
+            // isupCallFlowSqlToolStripMenuItem
+            // 
+            this.isupCallFlowSqlToolStripMenuItem.Name = "isupCallFlowSqlToolStripMenuItem";
+            this.isupCallFlowSqlToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.isupCallFlowSqlToolStripMenuItem.Text = "isupCallFlowSql";
+            this.isupCallFlowSqlToolStripMenuItem.Click += new System.EventHandler(this.isupCallFlowSqlToolStripMenuItem_Click);
+            // 
             // helpHToolStripMenuItem
             // 
             this.helpHToolStripMenuItem.Name = "helpHToolStripMenuItem";
@@ -329,13 +336,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // isupCallFlowSqlToolStripMenuItem
-            // 
-            this.isupCallFlowSqlToolStripMenuItem.Name = "isupCallFlowSqlToolStripMenuItem";
-            this.isupCallFlowSqlToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.isupCallFlowSqlToolStripMenuItem.Text = "isupCallFlowSql";
-            this.isupCallFlowSqlToolStripMenuItem.Click += new System.EventHandler(this.isupCallFlowSqlToolStripMenuItem_Click);
-            // 
             // softerCell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -350,7 +350,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "softerCell";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "softerCell U3_v0.02";
+            this.Text = "U3.v2010.12.6";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.softerCell_Load);

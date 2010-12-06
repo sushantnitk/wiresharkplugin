@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softerCell U3_v0.02", "softerCell U3_v0.02.csproj", "{5E9B71AE-81BD-4978-B806-35CEC9E6DD64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U3.v2010.12.6", "U3.v2010.12.6.csproj", "{5E9B71AE-81BD-4978-B806-35CEC9E6DD64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

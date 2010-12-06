@@ -1,0 +1,9 @@
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\bin\Debug\pop3hexDecoder.exe
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\bin\Debug\pop3hexDecoder.pdb
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\ResolveAssemblyReference.cache
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\pop3hexDecoder.Form1.resources
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\pop3hexDecoder.Properties.Resources.resources
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\pop3hexDecoder.csproj.GenerateResource.Cache
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\pop3hexDecoder.exe
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\obj\Debug\pop3hexDecoder.pdb
+F:\项目开发进度2009年4月27日\pop3hexDecoder\pop3hexDecoder\bin\Debug\RelatedObjects.Storage.dll

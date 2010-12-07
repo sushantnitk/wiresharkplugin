@@ -1,0 +1,6 @@
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\bin\Debug\FollowSccpStream.exe.config
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\bin\Debug\FollowSccpStream.exe
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\bin\Debug\FollowSccpStream.pdb
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\obj\x86\Debug\FollowSccpStream.exe
+G:\wiresharkplugin\wsAnalysis\FollowSccpStream\FollowSccpStream\obj\x86\Debug\FollowSccpStream.pdb

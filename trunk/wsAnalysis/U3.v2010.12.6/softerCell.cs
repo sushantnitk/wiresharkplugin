@@ -323,5 +323,10 @@ namespace softerCell_U3_v0._01
             isupCallFlow.isup_iam_acm_flow();
             toolStripStatusLabel5.Text = "softerCell_isup_iam" + "： OK";
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

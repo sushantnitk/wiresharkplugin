@@ -245,7 +245,7 @@ namespace softerCell_U3_v0._01
                 strConn += CON_strPwd + " = " + strPwd + ";";
                 strConn += CON_strConnTimeOut;
                 //string sql ="Data Source=.; Initial Catalog=master UserId='sa' Pwd='sa'";
-                base.m_oConn = new SqlConnection("server=localhost;uid=sa;pwd=1;database=" + strDataBase);
+                base.m_oConn = new SqlConnection("Data Source=.\\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=" + strDataBase);
             }
 
             protected override DbCommand GetCmd(string strCmd)

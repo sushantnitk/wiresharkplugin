@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="mc_sz04a" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
+  <!--通过member生成数据库和表，通过data生成row，每读入一行，生成txt逗号分隔的字符串，最后一次插入数据库-->
+  <Table Name="Paging" Member="paging_table">
+    <Message Name="BSSMAP.Paging&#xD;&#xA;" Node="Main" Stop="No">
+      <Column Name="FileNum" Member="Paging_FileNum" Data="" />
+      <Column Name="PacketNum" Member="Paging_PacketNum" Data="" />
+      <Column Name="PacketTime" Member="Paging_PacketTime" Data="" />
+      <Column Name="MsgType" Member="Paging_MsgType" Data="" />
+    </Message>
+    <Message Name="BSSMAP.Paging" Node="Sub" Stop="No">
+      <Column Name="FileNum" Member="SecondPaging_FileNum" Data="" />
+      <Column Name="PacketNum" Member="SecondPaging_PacketNum" Data="" />
+      <Column Name="PacketTime" Member="SecondPaging_PacketTime" Data="" />
+      <Column Name="MsgType" Member="SecondPaging_MsgType" Data="" />
+    </Message>
+    <Message Name="DTAP RR.Paging Response" Node="Main" Stop="Yes">
+      <Column Name="FileNum" Member="PagingResponse_FileNum" Data="" />
+      <Column Name="PacketNum" Member="PagingResponse_PacketNum" Data="" />
+      <Column Name="PacketTime" Member="PagingResponse_PacketTime" Data="" />
+      <Column Name="MsgType" Member="PagingResponse_MsgType" Data="" />
+    </Message>
+  </Table>
+</Database>

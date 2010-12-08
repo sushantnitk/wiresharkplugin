@@ -2,6 +2,7 @@
   <Connection>
     <ID>337b631f-296e-4a3b-aa36-09f23a9a9a38</ID>
     <Server>.\SQLEXPRESS</Server>
+    <Persist>true</Persist>
     <Database>mc_sz04a</Database>
     <ShowServer>true</ShowServer>
   </Connection>
@@ -54,7 +55,7 @@ foreach(LINQPad.User.LA_update i in totalMessge)
 }
 dFlow.Count().Dump();
 var  connLookup = dFlow.ToLookup(e=>e.Value);
-var xml=XElement.Load(@"G:\wiresharkplugin\wsFollow\defineflow.xml");
+var  xml=XElement.Load(@"G:\wiresharkplugin\wsFollow\defineflow.xml");
 
 create table ......
 
@@ -69,7 +70,7 @@ foreach (var i in connLookup)
           if(a.Attribute ("Name").Value==n.Key)
 		  {
 		     a.Elements("Column").Attributes("Name");
-		     a.SetAttributeValue("Data",n.id);
+		     a.SetAttributeValue("Data",n.);
 		  }
 
 	

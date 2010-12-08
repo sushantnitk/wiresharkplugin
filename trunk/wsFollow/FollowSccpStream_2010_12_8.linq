@@ -51,6 +51,7 @@ foreach(LINQPad.User.LA_update i in totalMessge)
 	        dConn.Add(i.Tmsi,dConn[i.M3ua_opc+i.M3ua_dpc+i.Sccp_dlr]);
 		}
     }
+	//如果SCCP释放了，那么这个tmsi的数据则要删除
 }
 }
 

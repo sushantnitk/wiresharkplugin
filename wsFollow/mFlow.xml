@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+    <table name="Author">
+        <field name="first" type="text"/>
+        <field name="last" type="text"/>
+    </table>
+    <table name="Publisher">
+        <field name="name" type="text"/>
+        <field name="last" type="text"/>
+    </table>
+    <table name="Book">
+        <field name="name" type="text"/>
+        <field name="author" type="id"/>
+        <field name="publisher" type="id"/>
+    </table>
+</tables>

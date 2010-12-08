@@ -20,4 +20,25 @@
       <Column Name="m3ua_dpc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.LA_update1" Member="LA_update1">
+    <Type Name="LA_update1">
+      <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BeginFrameNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[PacketTime(ms)]" Member="PacketTime_ms_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DumpFor" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ip_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ip_version_MsgType" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_slr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_dlr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_src" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_dst" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="imsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tmsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_opc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_dpc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="opcdpcsccp" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
+    <Compile Include="EntityDataReader.cs" />
+    <Compile Include="FlowStatistics.cs" />
     <Compile Include="common.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>

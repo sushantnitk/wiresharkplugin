@@ -26,7 +26,7 @@ namespace FollowSccpStream.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=mc_sz04a;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=sz04a_mc_all;Integrated Security=True")]
         public string mc_sz04aConnectionString {
             get {
                 return ((string)(this["mc_sz04aConnectionString"]));

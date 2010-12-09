@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FollowSccpStream
 {
-    class Class2
+    class FlowStatistics
     {
         public static void FlowStatics()
         {

@@ -1,225 +1,165 @@
-DTAP MM.CM Service Request--------------------0
-BSSMAP.Common Id--------------------0
-SMS RP.RP-ERROR (Network to MS)--------------------0
-DTAP MM.TMSI Reallocation Complete--------------------0
-BSSMAP.Handover Detect--------------------0
-RANAP.SecurityModeControlCommand--------------------0
-SCCP.Release Complete--------------------0
-SCCP.Released--------------------0
-RANAP.LocationReport--------------------0
-SCCP.Inactivity Timer--------------------0
-BSSMAP.Handover Complete--------------------0
-SCCP.Connection Confirm--------------------0
-BSSMAP.Classmark Update--------------------0
-SMS RP.RP-ERROR (MS to Network)--------------------0
-DTAP RR.Paging Response--------------------0
-BSSMAP.Handover Request--------------------0
-DTAP CC.Release Complete--------------------0
-RANAP.Iu_ReleaseComplete--------------------0
-DTAP RR.Handover Command--------------------0
-BSSMAP.Clear Request--------------------0
-DTAP SMS.CP-ACK--------------------0
-DTAP MM.Location Updating Reject--------------------0
-DTAP SS.Register--------------------0
-BSSMAP.Clear Complete--------------------0
-DTAP MM.CM Service Reject--------------------0
-DTAP MM.Identity Response--------------------0
-DTAP CC.Disconnect--------------------0
-SMS TP.SMS-DELIVER REPORT--------------------0
-BSSMAP.Clear Command--------------------0
-DTAP CC.Release--------------------0
-DTAP MM.Location Updating Request--------------------0
-SMS RP.RP-ACK (Network to MS)--------------------0
 BSSMAP.Cipher Mode Complete--------------------0
-RANAP.LocationReportingControl--------------------0
-RANAP.CommonID--------------------0
-DTAP SS.Release Complete--------------------0
-RANAP.Iu_ReleaseCommand--------------------0
-DTAP MM.Identity Request--------------------0
-DTAP MM.Authentication Response--------------------0
+BSSMAP.Clear Command--------------------0
+BSSMAP.Clear Complete--------------------0
+BSSMAP.Handover Request--------------------0
+BSSMAP.Paging--------------------0
+DTAP CC.Release--------------------0
+DTAP CC.Release Complete--------------------0
 DTAP MM.Authentication Request--------------------0
-SMS RP.RP-ACK (MS to Network)--------------------0
-BSSMAP.Paging--------------------0
-DTAP MM.Location Updating Accept--------------------0
-BSSMAP.Cipher Mode Command--------------------0
-DTAP MM.IMSI Detach Indication--------------------0
-DTAP MM.Location Updating Request--------------------236
-SCCP.Connection Confirm--------------------229
-BSSMAP.Clear Command--------------------113
-DTAP MM.Location Updating Accept--------------------113
-BSSMAP.Clear Complete--------------------103
-SCCP.Released--------------------98
-DTAP MM.Authentication Request--------------------85
-BSSMAP.Classmark Update--------------------58
-SCCP.Release Complete--------------------6
-DTAP MM.Identity Request--------------------6
-DTAP MM.Authentication Response--------------------6
-RANAP.CommonID--------------------2
-RANAP.SecurityModeControlCommand--------------------1
-RANAP.Iu_ReleaseComplete--------------------1
-DTAP MM.Location Updating Reject--------------------1
-RANAP.Iu_ReleaseCommand--------------------1
+DTAP MM.Authentication Response--------------------0
 DTAP MM.CM Service Request--------------------0
-BSSMAP.Common Id--------------------0
-SMS RP.RP-ERROR (Network to MS)--------------------0
-DTAP MM.TMSI Reallocation Complete--------------------0
-BSSMAP.Handover Detect--------------------0
-RANAP.LocationReport--------------------0
-SCCP.Inactivity Timer--------------------0
-BSSMAP.Handover Complete--------------------0
-SMS RP.RP-ERROR (MS to Network)--------------------0
-DTAP RR.Paging Response--------------------0
-BSSMAP.Handover Request--------------------0
-DTAP CC.Release Complete--------------------0
-DTAP RR.Handover Command--------------------0
-BSSMAP.Clear Request--------------------0
-DTAP SMS.CP-ACK--------------------0
-DTAP SS.Register--------------------0
-DTAP MM.CM Service Reject--------------------0
+DTAP MM.Identity Request--------------------0
 DTAP MM.Identity Response--------------------0
-DTAP CC.Disconnect--------------------0
-SMS TP.SMS-DELIVER REPORT--------------------0
-DTAP CC.Release--------------------0
-SMS RP.RP-ACK (Network to MS)--------------------0
-BSSMAP.Cipher Mode Complete--------------------0
-RANAP.LocationReportingControl--------------------0
-DTAP SS.Release Complete--------------------0
-SMS RP.RP-ACK (MS to Network)--------------------0
-BSSMAP.Paging--------------------0
-BSSMAP.Cipher Mode Command--------------------0
 DTAP MM.IMSI Detach Indication--------------------0
-DTAP MM.CM Service Request--------------------41
-SCCP.Connection Confirm--------------------41
-DTAP MM.Authentication Request--------------------40
-BSSMAP.Classmark Update--------------------21
-DTAP MM.Authentication Response--------------------1
-BSSMAP.Cipher Mode Command--------------------1
-BSSMAP.Common Id--------------------0
-SMS RP.RP-ERROR (Network to MS)--------------------0
-DTAP MM.TMSI Reallocation Complete--------------------0
-BSSMAP.Handover Detect--------------------0
-RANAP.SecurityModeControlCommand--------------------0
-SCCP.Release Complete--------------------0
-SCCP.Released--------------------0
-RANAP.LocationReport--------------------0
-SCCP.Inactivity Timer--------------------0
-BSSMAP.Handover Complete--------------------0
-SMS RP.RP-ERROR (MS to Network)--------------------0
-DTAP RR.Paging Response--------------------0
-BSSMAP.Handover Request--------------------0
-DTAP CC.Release Complete--------------------0
-RANAP.Iu_ReleaseComplete--------------------0
-DTAP RR.Handover Command--------------------0
-BSSMAP.Clear Request--------------------0
-DTAP SMS.CP-ACK--------------------0
+DTAP MM.Location Updating Accept--------------------0
 DTAP MM.Location Updating Reject--------------------0
-DTAP SS.Register--------------------0
-BSSMAP.Clear Complete--------------------0
-DTAP MM.CM Service Reject--------------------0
-DTAP MM.Identity Response--------------------0
-DTAP CC.Disconnect--------------------0
-SMS TP.SMS-DELIVER REPORT--------------------0
-BSSMAP.Clear Command--------------------0
-DTAP CC.Release--------------------0
 DTAP MM.Location Updating Request--------------------0
-SMS RP.RP-ACK (Network to MS)--------------------0
-BSSMAP.Cipher Mode Complete--------------------0
-RANAP.LocationReportingControl--------------------0
-RANAP.CommonID--------------------0
+DTAP MM.TMSI Reallocation Complete--------------------0
+DTAP RR.Handover Command--------------------0
+DTAP RR.Paging Response--------------------0
+DTAP SMS.CP-ACK--------------------0
+DTAP SS.Register--------------------0
 DTAP SS.Release Complete--------------------0
 RANAP.Iu_ReleaseCommand--------------------0
-DTAP MM.Identity Request--------------------0
+RANAP.Iu_ReleaseComplete--------------------0
+RANAP.LocationReport--------------------0
+RANAP.LocationReportingControl--------------------0
+SCCP.Connection Confirm--------------------0
+SCCP.Inactivity Timer--------------------0
+SCCP.Release Complete--------------------0
+SCCP.Released--------------------0
 SMS RP.RP-ACK (MS to Network)--------------------0
+SMS RP.RP-ERROR (Network to MS)--------------------0
+SMS TP.SMS-DELIVER REPORT--------------------0
+DTAP MM.Location Updating Request--------------------95
+SCCP.Connection Confirm--------------------95
+BSSMAP.Clear Command--------------------43
+DTAP MM.Location Updating Accept--------------------42
+BSSMAP.Clear Complete--------------------32
+SCCP.Released--------------------28
+DTAP MM.Authentication Request--------------------18
+DTAP MM.Identity Request--------------------5
+DTAP MM.Location Updating Reject--------------------1
+BSSMAP.Cipher Mode Complete--------------------0
+BSSMAP.Handover Request--------------------0
 BSSMAP.Paging--------------------0
-DTAP MM.Location Updating Accept--------------------0
+DTAP CC.Release--------------------0
+DTAP CC.Release Complete--------------------0
+DTAP MM.Authentication Response--------------------0
+DTAP MM.CM Service Request--------------------0
+DTAP MM.Identity Response--------------------0
 DTAP MM.IMSI Detach Indication--------------------0
-SCCP.Connection Confirm--------------------39
-DTAP RR.Paging Response--------------------39
-DTAP MM.Authentication Request--------------------39
-BSSMAP.Classmark Update--------------------15
-DTAP MM.Authentication Response--------------------2
+DTAP MM.TMSI Reallocation Complete--------------------0
+DTAP RR.Handover Command--------------------0
+DTAP RR.Paging Response--------------------0
+DTAP SMS.CP-ACK--------------------0
+DTAP SS.Register--------------------0
+DTAP SS.Release Complete--------------------0
+RANAP.Iu_ReleaseCommand--------------------0
+RANAP.Iu_ReleaseComplete--------------------0
+RANAP.LocationReport--------------------0
+RANAP.LocationReportingControl--------------------0
+SCCP.Inactivity Timer--------------------0
+SCCP.Release Complete--------------------0
+SMS RP.RP-ACK (MS to Network)--------------------0
+SMS RP.RP-ERROR (Network to MS)--------------------0
+SMS TP.SMS-DELIVER REPORT--------------------0
+DTAP MM.CM Service Request--------------------12
+SCCP.Connection Confirm--------------------12
+DTAP MM.Authentication Request--------------------11
+BSSMAP.Cipher Mode Complete--------------------0
+BSSMAP.Clear Command--------------------0
+BSSMAP.Clear Complete--------------------0
+BSSMAP.Handover Request--------------------0
+BSSMAP.Paging--------------------0
+DTAP CC.Release--------------------0
+DTAP CC.Release Complete--------------------0
+DTAP MM.Authentication Response--------------------0
+DTAP MM.Identity Request--------------------0
+DTAP MM.Identity Response--------------------0
+DTAP MM.IMSI Detach Indication--------------------0
+DTAP MM.Location Updating Accept--------------------0
+DTAP MM.Location Updating Reject--------------------0
+DTAP MM.Location Updating Request--------------------0
+DTAP MM.TMSI Reallocation Complete--------------------0
+DTAP RR.Handover Command--------------------0
+DTAP RR.Paging Response--------------------0
+DTAP SMS.CP-ACK--------------------0
+DTAP SS.Register--------------------0
+DTAP SS.Release Complete--------------------0
+RANAP.Iu_ReleaseCommand--------------------0
+RANAP.Iu_ReleaseComplete--------------------0
+RANAP.LocationReport--------------------0
+RANAP.LocationReportingControl--------------------0
+SCCP.Inactivity Timer--------------------0
+SCCP.Release Complete--------------------0
+SCCP.Released--------------------0
+SMS RP.RP-ACK (MS to Network)--------------------0
+SMS RP.RP-ERROR (Network to MS)--------------------0
+SMS TP.SMS-DELIVER REPORT--------------------0
+DTAP MM.Authentication Request--------------------15
+DTAP RR.Paging Response--------------------15
+SCCP.Connection Confirm--------------------15
 RANAP.LocationReport--------------------1
 RANAP.LocationReportingControl--------------------1
-DTAP MM.CM Service Request--------------------0
-BSSMAP.Common Id--------------------0
-SMS RP.RP-ERROR (Network to MS)--------------------0
-DTAP MM.TMSI Reallocation Complete--------------------0
-BSSMAP.Handover Detect--------------------0
-RANAP.SecurityModeControlCommand--------------------0
-SCCP.Release Complete--------------------0
-SCCP.Released--------------------0
-SCCP.Inactivity Timer--------------------0
-BSSMAP.Handover Complete--------------------0
-SMS RP.RP-ERROR (MS to Network)--------------------0
+BSSMAP.Cipher Mode Complete--------------------0
+BSSMAP.Clear Command--------------------0
+BSSMAP.Clear Complete--------------------0
 BSSMAP.Handover Request--------------------0
-DTAP CC.Release Complete--------------------0
-RANAP.Iu_ReleaseComplete--------------------0
-DTAP RR.Handover Command--------------------0
-BSSMAP.Clear Request--------------------0
-DTAP SMS.CP-ACK--------------------0
-DTAP MM.Location Updating Reject--------------------0
-DTAP SS.Register--------------------0
-BSSMAP.Clear Complete--------------------0
-DTAP MM.CM Service Reject--------------------0
-DTAP MM.Identity Response--------------------0
-DTAP CC.Disconnect--------------------0
-SMS TP.SMS-DELIVER REPORT--------------------0
-BSSMAP.Clear Command--------------------0
+BSSMAP.Paging--------------------0
 DTAP CC.Release--------------------0
+DTAP CC.Release Complete--------------------0
+DTAP MM.Authentication Response--------------------0
+DTAP MM.CM Service Request--------------------0
+DTAP MM.Identity Request--------------------0
+DTAP MM.Identity Response--------------------0
+DTAP MM.IMSI Detach Indication--------------------0
+DTAP MM.Location Updating Accept--------------------0
+DTAP MM.Location Updating Reject--------------------0
 DTAP MM.Location Updating Request--------------------0
-SMS RP.RP-ACK (Network to MS)--------------------0
-BSSMAP.Cipher Mode Complete--------------------0
-RANAP.CommonID--------------------0
+DTAP MM.TMSI Reallocation Complete--------------------0
+DTAP RR.Handover Command--------------------0
+DTAP SMS.CP-ACK--------------------0
+DTAP SS.Register--------------------0
 DTAP SS.Release Complete--------------------0
 RANAP.Iu_ReleaseCommand--------------------0
-DTAP MM.Identity Request--------------------0
-SMS RP.RP-ACK (MS to Network)--------------------0
-BSSMAP.Paging--------------------0
-DTAP MM.Location Updating Accept--------------------0
-BSSMAP.Cipher Mode Command--------------------0
-DTAP MM.IMSI Detach Indication--------------------0
-SCCP.Connection Confirm--------------------6
-BSSMAP.Handover Request--------------------6
-DTAP RR.Handover Command--------------------5
-BSSMAP.Handover Detect--------------------2
-BSSMAP.Handover Complete--------------------1
-DTAP MM.CM Service Request--------------------0
-BSSMAP.Common Id--------------------0
-SMS RP.RP-ERROR (Network to MS)--------------------0
-DTAP MM.TMSI Reallocation Complete--------------------0
-RANAP.SecurityModeControlCommand--------------------0
+RANAP.Iu_ReleaseComplete--------------------0
+SCCP.Inactivity Timer--------------------0
 SCCP.Release Complete--------------------0
 SCCP.Released--------------------0
-RANAP.LocationReport--------------------0
-SCCP.Inactivity Timer--------------------0
-BSSMAP.Classmark Update--------------------0
-SMS RP.RP-ERROR (MS to Network)--------------------0
-DTAP RR.Paging Response--------------------0
-DTAP CC.Release Complete--------------------0
-RANAP.Iu_ReleaseComplete--------------------0
-BSSMAP.Clear Request--------------------0
-DTAP SMS.CP-ACK--------------------0
-DTAP MM.Location Updating Reject--------------------0
-DTAP SS.Register--------------------0
-BSSMAP.Clear Complete--------------------0
-DTAP MM.CM Service Reject--------------------0
-DTAP MM.Identity Response--------------------0
-DTAP CC.Disconnect--------------------0
+SMS RP.RP-ACK (MS to Network)--------------------0
+SMS RP.RP-ERROR (Network to MS)--------------------0
 SMS TP.SMS-DELIVER REPORT--------------------0
-BSSMAP.Clear Command--------------------0
-DTAP CC.Release--------------------0
-DTAP MM.Location Updating Request--------------------0
-SMS RP.RP-ACK (Network to MS)--------------------0
+BSSMAP.Handover Request--------------------2
+SCCP.Connection Confirm--------------------2
+DTAP RR.Handover Command--------------------1
 BSSMAP.Cipher Mode Complete--------------------0
-RANAP.LocationReportingControl--------------------0
-RANAP.CommonID--------------------0
+BSSMAP.Clear Command--------------------0
+BSSMAP.Clear Complete--------------------0
+BSSMAP.Paging--------------------0
+DTAP CC.Release--------------------0
+DTAP CC.Release Complete--------------------0
+DTAP MM.Authentication Request--------------------0
+DTAP MM.Authentication Response--------------------0
+DTAP MM.CM Service Request--------------------0
+DTAP MM.Identity Request--------------------0
+DTAP MM.Identity Response--------------------0
+DTAP MM.IMSI Detach Indication--------------------0
+DTAP MM.Location Updating Accept--------------------0
+DTAP MM.Location Updating Reject--------------------0
+DTAP MM.Location Updating Request--------------------0
+DTAP MM.TMSI Reallocation Complete--------------------0
+DTAP RR.Paging Response--------------------0
+DTAP SMS.CP-ACK--------------------0
+DTAP SS.Register--------------------0
 DTAP SS.Release Complete--------------------0
 RANAP.Iu_ReleaseCommand--------------------0
-DTAP MM.Identity Request--------------------0
-DTAP MM.Authentication Response--------------------0
-DTAP MM.Authentication Request--------------------0
+RANAP.Iu_ReleaseComplete--------------------0
+RANAP.LocationReport--------------------0
+RANAP.LocationReportingControl--------------------0
+SCCP.Inactivity Timer--------------------0
+SCCP.Release Complete--------------------0
+SCCP.Released--------------------0
 SMS RP.RP-ACK (MS to Network)--------------------0
-BSSMAP.Paging--------------------0
-DTAP MM.Location Updating Accept--------------------0
-BSSMAP.Cipher Mode Command--------------------0
-DTAP MM.IMSI Detach Indication--------------------0
+SMS RP.RP-ERROR (Network to MS)--------------------0
+SMS TP.SMS-DELIVER REPORT--------------------0

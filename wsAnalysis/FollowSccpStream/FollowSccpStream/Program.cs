@@ -51,13 +51,51 @@ namespace FollowSccpStream
             GC.Collect();
         }
 
+		//根据消息寻呼做记录
         static void FollowSccpStream(IEnumerable<LA_update> totalMessge)
         {
-            for (int m = 0; m < 2; m++)
-            {
+ /*            for (int m = 0; m < 2; m++)
+            { */
+			
+			    int tNum=0;//此参数比较关键，需要做中间的记录
                 foreach (LA_update i in totalMessge)
                 {
-                    if (i.sccp_slr != null && i.sccp_dlr != null)
+				    //寻呼消息
+                    if (i.sccp_slr == null && i.sccp_dlr == null)
+                    {
+                        if (!dConn.ContainsKey(i.tmsi))
+                            dConn.Add(i.tmsi, i.PacketNum);  //此处记录包标签
+						if (!dConn.ContainsKey(i.imsi))
+                            dConn.Add(i.imsi, i.PacketNum);  //此处记录包标签
+                    }
+                    
+					//位置更新消息
+                    if (i.sccp_slr != null && i.sccp_dlr == null)
+                    {
+                        if (dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr))   //此处也是记录包标签
+						{
+                            if (!dFlow.ContainsKey(i.PacketNum))
+                            {
+                                dFlow.Add(i.PacketNum, dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]);//此处增加包标签
+                                if (i.tmsi != null)
+                                {
+                                    if (dConn.ContainsKey(i.tmsi))
+                                        dConn[i.tmsi] = dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr];//此处修改新的地址
+                                }
+                                if (i.imsi != null)
+                                {
+                                    if (dConn.ContainsKey(i.imsi))
+                                        dConn[i.imsi] = dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr];//此处修改新的地址
+                                }
+                            }
+						}
+						else
+						{
+						}
+                    }
+					
+					//CC消息
+					if (i.sccp_slr != null && i.sccp_dlr != null)
                     {
                         if (!dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr))
                             dConn.Add(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr, i.m3ua_opc + i.m3ua_dpc + i.sccp_slr + i.sccp_dlr);
@@ -75,51 +113,9 @@ namespace FollowSccpStream
                             dFlow.Add(i.PacketNum, i.m3ua_opc + i.m3ua_dpc + i.sccp_slr + i.sccp_dlr);
 
                     }
-
-                    if (i.tmsi != null && i.sccp_slr == null && i.sccp_dlr == null)
-                    {
-                        if (!dConn.ContainsKey(i.tmsi))
-                            dConn.Add(i.tmsi, i.tmsi);
-                        else
-                        {
-                            if (!dFlow.ContainsKey(i.PacketNum))
-                                dFlow.Add(i.PacketNum, dConn[i.tmsi]);//此处增加包标签
-                        }
-
-                    }
-
-                    if (i.imsi != null && i.sccp_slr == null && i.sccp_dlr == null)
-                    {
-                        if (!dConn.ContainsKey(i.imsi))
-                            dConn.Add(i.imsi, i.imsi);
-                        else
-                        {
-                            if (!dFlow.ContainsKey(i.PacketNum))
-                                dFlow.Add(i.PacketNum, dConn[i.imsi]);//此处增加包标签
-                        }
-
-                    }
-
-                    if (i.sccp_slr != null)
-                    {
-                        if (dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr))
-                            if (!dFlow.ContainsKey(i.PacketNum))
-                            {
-                                dFlow.Add(i.PacketNum, dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]);//此处增加包标签
-                                if (i.tmsi != null)
-                                {
-                                    if (dConn.ContainsKey(i.tmsi))
-                                        dConn[i.tmsi] = dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr];//此处修改新的地址
-                                }
-                                if (i.imsi != null)
-                                {
-                                    if (dConn.ContainsKey(i.imsi))
-                                        dConn[i.imsi] = dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr];//此处修改新的地址
-                                }
-                            }
-                    }
-
-                    if (i.sccp_dlr != null)
+                    
+					//其他消息
+                    if (i.sccp_slr == null && i.sccp_dlr != null)
                     {
                         if (dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr))
                             if (!dFlow.ContainsKey(i.PacketNum))
@@ -137,8 +133,10 @@ namespace FollowSccpStream
                                 }
                             }
                     }
+					
+					//此处是否需要删除主键
                 }
-            }
+            /* } */
             Console.WriteLine(dFlow.Count());
             Console.WriteLine(dConn.Count());
         }

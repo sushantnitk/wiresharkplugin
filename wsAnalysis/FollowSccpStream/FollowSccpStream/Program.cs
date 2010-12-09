@@ -13,8 +13,13 @@ namespace FollowSccpStream
     {
 
         public static DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
-        private static Dictionary<string, string> dConn = new Dictionary<string, string>();
+		//没有出现sccp对之前的回调字典
+		private static Dictionary<int, string> dCallback = new Dictionary<int, string>();
+		//出现sccp对之后的只包含一项slr或者dlr的稀疏矩阵字典
+        private static Dictionary<string, string> dConn = new Dictionary<string, string>();  
+		//opc+dpc+slr+dlr索引字典，索引到包标签
         private static Dictionary<int?, string> dFlow = new Dictionary<int?, string>();
+		
         static void Main(string[] args)
         {
             Console.Write("是否初始化数据库？");
@@ -58,16 +63,18 @@ namespace FollowSccpStream
  /*            for (int m = 0; m < 2; m++)
             { */
 			
-			    int tNum=0;//回调参数
+			    //int tNum=0;//回调参数
                 foreach (LA_update i in totalMessge)
                 {
 				    //寻呼消息
                     if (i.sccp_slr == null && i.sccp_dlr == null)
                     {
-                        if (!dConn.ContainsKey(i.tmsi))
-                            dConn.Add(i.tmsi, i.PacketNum);  //开始记录包标签
-						if (!dConn.ContainsKey(i.imsi))
-                            dConn.Add(i.imsi, i.PacketNum);  //开始记录包标签
+                        if (i.tmsi !=null)
+						    dCallback.Add(i.PacketNum,i.tmsi);
+                            //dConn.Add(i.tmsi, i.PacketNum);  //开始记录包标签
+						if (i.imsi !=null)
+						    dCallback.Add(i.PacketNum,i.imsi);
+                            //dConn.Add(i.imsi, i.PacketNum);  //开始记录包标签
                     }
                     
 					//位置更新消息
@@ -78,28 +85,24 @@ namespace FollowSccpStream
                             if (!dFlow.ContainsKey(i.PacketNum))
                             {
                                 dFlow.Add(i.PacketNum, dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]);//Flow正常增加包标签
-                                if (i.tmsi != null)
+                                if (i.tmsi != null || i.imsi != null)
                                 {
-                                    if (dConn.ContainsKey(i.tmsi))
-									dFlow.Add(dConn[i.tmsi],dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]  //Flow补充增加TMSI标签号
-                                }
-                                if (i.imsi != null)
-                                {
-                                    if (dConn.ContainsKey(i.imsi))
-									dFlow.Add(dConn[i.imsi],dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]  //Flow补充增加IMSI标签号
+								    foreach(var call in dCallback)
+									 if(tmsi.value==i.tmsi || tmsi.value==i.imsi)
+									dFlow.Add(tmsi.key,dConn[i.m3ua_opc + i.m3ua_dpc + i.sccp_slr]  //Flow补充增加TMSI标签号
                                 }
                             }
 						}
 						else
 						{
-						dConn.Add(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr, i.PacketNum);//开始记录包标签
+						    dCallback.Add( i.PacketNum,i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);//开始记录包标签
 						}
                     }
 					
 					//CC消息
 					if (i.sccp_slr != null && i.sccp_dlr != null)
                     {
-					    if (!dFlow.ContainsKey(i.PacketNum))
+					    //if (!dFlow.ContainsKey(i.PacketNum))
                             dFlow.Add(i.PacketNum, i.m3ua_opc + i.m3ua_dpc + i.sccp_slr + i.sccp_dlr);
 							
                         if (!dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr))
@@ -137,7 +140,7 @@ namespace FollowSccpStream
 
                     }
                     
-					//其他消息
+					//后续消息
                     if (i.sccp_slr == null && i.sccp_dlr != null)
                     {
                         if (dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr))
@@ -164,6 +167,13 @@ namespace FollowSccpStream
                     }
 					
 					//此处是否需要删除主键
+					if (i.messge == sccp.released )
+					{
+					    dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
+						dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
+						dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
+						dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
+					}
                 }
             /* } */
             Console.WriteLine(dFlow.Count());

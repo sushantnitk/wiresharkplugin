@@ -28,7 +28,7 @@ namespace FollowSccpStream
             mydb.ExecuteCommand(delSql.ToString());
             mydb.ExecuteCommand(sql.ToString());
 
-            var totalMessge = mydb.LA_update.Take(2000);
+            var totalMessge = mydb.LA_update.Where(e=>e.FileNum==0).Take(1000);
             FollowSccpStream(totalMessge);
             SendOrders(DefineFlow(totalMessge), "LA_update1");
         }
@@ -153,7 +153,7 @@ namespace FollowSccpStream
                       SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
                     //bc.BulkCopyTimeout=0;
-                    bc.BatchSize = 1000;
+                    bc.BatchSize = 10;
                     bc.DestinationTableName =tablename ;
                     bc.WriteToServer(newOrders.AsDataReader());
                     tran.Commit();
@@ -167,3 +167,4 @@ namespace FollowSccpStream
         }
     }
 }
+ 

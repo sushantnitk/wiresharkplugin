@@ -7,12 +7,29 @@ namespace FollowSccpStream
 {
     class FlowStatistics
     {
-        public static void FlowStatics()
+        System.IO.StreamWriter sw = new System.IO.StreamWriter("log.txt", false);
+        DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
+        Dictionary<string, int> myDic = new Dictionary<string, int>();
+        Dictionary<string, int>[] newDic = new Dictionary<string, int>[6];
+        //List<string> startmessage = new List<string>();
+        Dictionary<string, Dictionary<string, int>> startmessage = new Dictionary<string, Dictionary<string, int>>();
+        Dictionary<string, Dictionary<string, int>> _startmessage = new Dictionary<string, Dictionary<string, int>>();
+        List<string> message = new List<string>();
+        bool messageexit = false;
+        //Tuple<string, Dictionary<string, int>> statics;
+
+        public FlowStatistics()
         {
-            System.IO.StreamWriter sw = new System.IO.StreamWriter("log.txt", false);
-            DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
-            var message = mydb.LA_update1.Select(e => e.ip_version_MsgType).Distinct();
-            Dictionary<string, int> myDic = new Dictionary<string, int>();
+            //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
+            message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
+            initWrite();
+            initFlowCollection();
+            FlowCollectionWrite();
+        }
+
+        private void initWrite()
+        {
+            //获取消息列表字典
             foreach (string m in message)
             {
                 myDic.Add(m, 0);
@@ -24,47 +41,104 @@ namespace FollowSccpStream
 
             }
             sw.Flush();
+        }
 
-            List<string> startmessage = new List<string>();
-            startmessage.Add("DTAP MM.Location Updating Request");
-            startmessage.Add("DTAP MM.CM Service Request");
-            startmessage.Add("DTAP RR.Paging Response");
-            startmessage.Add("BSSMAP.Handover Request");
+        private void initFlowCollection()
+        {
+            //初始化统计表字典
+            //for (int i = 0; i < startmessage.Count(); i++)
+            //    newDic[i] = new Dictionary<string, int>();
 
+            startmessage.Add("DTAP MM.CM Service Request", newDic[0]);
+            startmessage.Add("BSSMAP.Paging", newDic[0]);
+            startmessage.Add("BSSMAP.Handover Request", newDic[0]);
+            startmessage.Add("BSSMAP.Handover Performed", newDic[0]);
+            startmessage.Add("BSSMAP.Handover Required", newDic[0]);
+            startmessage.Add("DTAP MM.Location Updating Request", newDic[0]);
+            //statics.Item1 = "DTAP MM.Location Updating Request";
+            /*
+            NGN指标定义方法
+            gsm_a.cell_lac || gsm_a.cell_lac_target-------WHandoverRequireds
+            Handover Performed---------------------WHandoverPerforms
+            Handover Request-----------WHandoverRequests
+            gsm_a.cell_lac || gsm_a.cell_lac_target----------WClearRequests
+            Location Updating Request----------WLocationUpdates
+            Paging------------WPagings
+            gsm_a.cell_lac-----WTchAssignments
+            */
+        }
 
-            foreach (var start in startmessage)
+        private void FlowCollectionWrite()
+        {
+            //给初始化字典赋值
+            int i = 0;
+            //for (int i = 0; i < startmessage.Count(); i++)
+             foreach (var s in startmessage)
             {
-                Dictionary<string, int> newDic = new Dictionary<string, int>();
+                // s.Value = newDic[i];
+                newDic[i] = new Dictionary<string, int>();
                 foreach (KeyValuePair<string, int> pair in myDic)
-                    newDic.Add(pair.Key, 0);
-
-                var a = from p in mydb.LA_update1
-                        where p.ip_version_MsgType == start
-                        select p.opcdpcsccp;
-
-                foreach (var b in a)
                 {
-                    foreach (KeyValuePair<string, int> kvp in myDic)
-                    {
-                        var c = mydb.LA_update1.Where(e => e.opcdpcsccp == b).Where(e => e.ip_version_MsgType == kvp.Key).FirstOrDefault();
-                        if (c != null)
-                            newDic[kvp.Key] = newDic[kvp.Key] + 1;
-                    }
+                    //Console.WriteLine(s.Key);
+                    //Console.WriteLine(s.Value);
+                    newDic[i].Add(pair.Key, 0);
                 }
-
-                foreach (var m in newDic.OrderByDescending(e => e.Value))
-                {
-                    Console.Write(m.Key+"--------------------");
-                    Console.WriteLine(m.Value);
-
-                    sw.Write(m.Key + "--------------------");
-                    sw.WriteLine(m.Value);
-                }
-
-                sw.Flush();
-                
+                i++;
             }
+
+            foreach (var m in startmessage)
+                _startmessage.Add(m.Key, newDic[0]);
+
+            int index=0;
+            foreach (var m in _startmessage)
+            {
+                startmessage[m.Key] = newDic[index];
+                index++;
+            }
+        }
+
+        public void Save()
+        {
+            foreach (var m in startmessage)
+            {
+                Console.Write(m.Key + "**************");
+                sw.Write(m.Key + "**************");
+                foreach (var n in m.Value)
+                {
+                    Console.Write(n.Key + "--------------------");
+                    Console.WriteLine(n.Value);
+                    sw.Write(n.Key + "--------------------");
+                    sw.WriteLine(n.Value);
+                }
+            }
+            sw.Flush();
             sw.Close();
+        }
+
+        public void FlowStatics(List<int?> a)
+        {
+
+            messageexit = false;
+            var messagefirst = a.OrderBy(e => e.Value);
+            foreach (var start in _startmessage)
+                foreach (var b in messagefirst)
+                {
+                    var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
+                    if (messageb == start.Key)
+                    {
+                        messageexit = true;
+                    }
+                    if (messageexit == true)
+                        foreach (KeyValuePair<string, int> kvp in myDic)
+                        {
+                            if (messageb == kvp.Key)
+                            {
+                                var c = startmessage[start.Key];
+                                c[kvp.Key] = c[kvp.Key] + 1;
+                                //newDic[kvp.Key] = newDic[kvp.Key] + 1;
+                            }
+                        }
+                }
         }
     }
 }

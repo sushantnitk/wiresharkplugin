@@ -16,12 +16,14 @@ namespace FollowSccpStream
         Dictionary<string, Dictionary<string, int>> _startmessage = new Dictionary<string, Dictionary<string, int>>();
         List<string> message = new List<string>();
         bool messageexit = false;
+        //ILookup<int?, LA_update> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
         public FlowStatistics()
         {
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
             message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
+            //messagelist = mydb.LA_update.ToLookup(e => e.PacketNum);
             initWrite();
             initFlowCollection();
             FlowCollectionWrite();
@@ -123,7 +125,9 @@ namespace FollowSccpStream
             foreach (var start in _startmessage)
                 foreach (var b in messagefirst)
                 {
-                    var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
+                    //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
+                   var messageb = common.messagelist[b].ip_version_MsgType;
+                   // var messageb = common.messagelist.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
                     if (messageb == start.Key)
                     {
                         messageexit = true;

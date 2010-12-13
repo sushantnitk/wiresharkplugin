@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace FollowSccpStream
 {
@@ -19,19 +21,24 @@ namespace FollowSccpStream
         //opc+dpc+slr+dlr索引字典，索引到包标签
         public Dictionary<int?, string> dFlow = new Dictionary<int?, string>();
 
-        FlowStatistics fs;
+        FlowStatistics fs = new FlowStatistics();
 
         public FollowStream(IEnumerable<LA_update> totalMessge)
         {
-            fs = new FlowStatistics();
-            FollowSccpStream(totalMessge);
-           
+            //FollowSccpStream(totalMessge);
+            common.messagelist = mydb.LA_update.ToDictionary(e => e.PacketNum);
+            FollowSccpStream(common.messagelist);
+
         }
         //通过回调的方式获取 opc+dpc+slr+dlr字典值的关键字的集合
-        private void FollowSccpStream(IEnumerable<LA_update> totalMessge)
+        //private void FollowSccpStream(IEnumerable<LA_update> totalMessge)
+        private void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
         {
-            foreach (LA_update i in totalMessge)
+            //foreach (LA_update i in totalMessge)
+            foreach (var dic in totalMessge)
             {
+                var i = dic.Value;
+                //common.messagelist.Add(i);
                 //Console.WriteLine(i.PacketNum);
                 //寻呼消息
                 if (i.sccp_slr == null && i.sccp_dlr == null)
@@ -184,16 +191,9 @@ namespace FollowSccpStream
                     dConn.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_slr);
                     dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr);
                     dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
-
-                    //此处做统计
-                    var value = dFlow[i.PacketNum];
-                    //Console.WriteLine(value);
-                    var connLookup = dFlow.ToLookup(e => e.Value);
-                    fs.FlowStatics(connLookup[value].Select(e => e.Key).ToList());
-
-                    //Console.WriteLine("OK");
-
-
+                    //此处做统计,通过多线程
+                    FlowStatistics(i.PacketNum);
+                    Console.WriteLine(i.PacketNum);
                 }
 
                 //删除回调记录的主键
@@ -203,11 +203,43 @@ namespace FollowSccpStream
                     if (_dCallback.ContainsKey(k))
                         _dCallback.Remove(k);
                 }
+                //Thread.Sleep(1);
             }
             fs.Save();
             Console.WriteLine(dFlow.Count());
             Console.WriteLine(dConn.Count());
             Console.ReadKey();
+        }
+
+        private void FlowStatistics(int? packetnum)
+        {
+            var value = dFlow[packetnum];
+            //Console.WriteLine(value);
+            var connLookup = dFlow.ToLookup(e => e.Value);
+            Task.Factory.StartNew(() => fs.FlowStatics(connLookup[value].Select(e => e.Key).ToList()));
+            // if(Task.Factory.
+            //Task.Factory.StartNew(() => DoComputation3());
+            // fs.FlowStatics(a);
+            //Console.WriteLine("packetnum");
+            /* 
+            var outer = Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("Outer task beginning.");
+
+                var child = Task.Factory.StartNew(() =>
+                {
+                    Thread.SpinWait(5000000);
+                    Console.WriteLine("Detached task completed.");
+                });
+
+            });
+            outer.Wait();
+            Console.WriteLine("Outer task completed.");
+            Output:
+                Outer task beginning.
+                Outer task completed.
+                Detached task completed.
+             */
         }
     }
 }

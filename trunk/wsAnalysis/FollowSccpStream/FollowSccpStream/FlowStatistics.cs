@@ -22,7 +22,8 @@ namespace FollowSccpStream
         public FlowStatistics()
         {
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
-            message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
+            //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
+            message = common.messagelist.Select(e=>e.Value.ip_version_MsgType).Distinct().ToList();
             //messagelist = mydb.LA_update.ToLookup(e => e.PacketNum);
             initWrite();
             initFlowCollection();
@@ -103,8 +104,10 @@ namespace FollowSccpStream
         {
             foreach (var m in startmessage)
             {
-                Console.Write(m.Key + "**************");
-                sw.Write(m.Key + "**************");
+                Console.Write("**************"+m.Key + "**************");
+                sw.Write("**************"+m.Key + "**************");
+                Console.WriteLine("**************");
+                sw.WriteLine("**************");
                 foreach (var n in m.Value)
                 {
                     Console.Write(n.Key + "--------------------");
@@ -119,15 +122,17 @@ namespace FollowSccpStream
 
         public void FlowStatics(List<int?> a)
         {
-
-            messageexit = false;
+           
             var messagefirst = a.OrderBy(e => e.Value);
+
             foreach (var start in _startmessage)
+            {
+                messageexit = false;
                 foreach (var b in messagefirst)
                 {
                     //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
-                   var messageb = common.messagelist[b].ip_version_MsgType;
-                   // var messageb = common.messagelist.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
+                    var messageb = common.messagelist[b].ip_version_MsgType;
+                    // var messageb = common.messagelist.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
                     if (messageb == start.Key)
                     {
                         messageexit = true;
@@ -143,6 +148,7 @@ namespace FollowSccpStream
                             }
                         }
                 }
+            }
         }
     }
 }

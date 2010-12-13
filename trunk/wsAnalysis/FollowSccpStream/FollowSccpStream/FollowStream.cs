@@ -23,11 +23,11 @@ namespace FollowSccpStream
 
         FlowStatistics fs = new FlowStatistics();
 
-        public FollowStream(IEnumerable<LA_update> totalMessge)
+        public FollowStream(Dictionary<int?, LA_update> totalMessge)
         {
-            //FollowSccpStream(totalMessge);
-            common.messagelist = mydb.LA_update.ToDictionary(e => e.PacketNum);
-            FollowSccpStream(common.messagelist);
+            //FollowSccpStream(totalMessge);.OrderBy(e=>e.PacketNum)
+
+            FollowSccpStream(totalMessge);
 
         }
         //通过回调的方式获取 opc+dpc+slr+dlr字典值的关键字的集合
@@ -35,7 +35,8 @@ namespace FollowSccpStream
         private void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
         {
             //foreach (LA_update i in totalMessge)
-            foreach (var dic in totalMessge)
+            var total = totalMessge.OrderBy(e => e.Key);
+            foreach (var dic in total)
             {
                 var i = dic.Value;
                 //common.messagelist.Add(i);

@@ -23,16 +23,16 @@ namespace FollowSccpStream
 
         FlowStatistics fs = new FlowStatistics();
 
-        public FollowStream(Dictionary<int?, LA_update> totalMessge)
+        public FollowStream()
         {
             //FollowSccpStream(totalMessge);.OrderBy(e=>e.PacketNum)
 
-            FollowSccpStream(totalMessge);
+            //FollowSccpStream(totalMessge);
 
         }
         //通过回调的方式获取 opc+dpc+slr+dlr字典值的关键字的集合
         //private void FollowSccpStream(IEnumerable<LA_update> totalMessge)
-        private void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
+        public void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
         {
             //foreach (LA_update i in totalMessge)
             var total = totalMessge.OrderBy(e => e.Key);
@@ -214,6 +214,11 @@ namespace FollowSccpStream
 
         private void FlowStatistics(int? packetnum)
         {
+            if (packetnum % 5000 == 0)
+            {
+                GC.Collect();
+                GC.Collect();
+            }
             var value = dFlow[packetnum];
             //Console.WriteLine(value);
             var connLookup = dFlow.ToLookup(e => e.Value);

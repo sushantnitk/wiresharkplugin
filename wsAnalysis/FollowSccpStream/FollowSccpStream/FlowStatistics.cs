@@ -23,7 +23,9 @@ namespace FollowSccpStream
         {
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
-            message = common.messagelist.Select(e=>e.Value.ip_version_MsgType).Distinct().ToList();
+            var messages = common.messagelist.ToLookup(e => e.Value.ip_version_MsgType);
+            Console.WriteLine(messages.Count);
+            message = messages.Select(e => e.Key).ToList();
             //messagelist = mydb.LA_update.ToLookup(e => e.PacketNum);
             initWrite();
             initFlowCollection();

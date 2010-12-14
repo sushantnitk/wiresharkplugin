@@ -80,11 +80,11 @@ DTAP CC.Retrieve--------------------0
 DTAP CC.Emergency Setup--------------------0
 DTAP CC.Retrieve Acknowledge--------------------0
 **************DTAP MM.CM Service Request****************************
-SCCP.Released--------------------3
+SCCP.Released--------------------2
 DTAP MM.Authentication Request--------------------2
 SCCP.Connection Confirm--------------------2
 BSSMAP.Clear Command--------------------2
-DTAP MM.Location Updating Accept--------------------1
+DTAP MM.Location Updating Accept--------------------0
 BSSMAP.Paging--------------------0
 SMS TP.SMS-DELIVER--------------------0
 DTAP CC.Disconnect--------------------0
@@ -490,18 +490,18 @@ DTAP CC.Retrieve--------------------0
 DTAP CC.Emergency Setup--------------------0
 DTAP CC.Retrieve Acknowledge--------------------0
 **************DTAP MM.Location Updating Request****************************
-SCCP.Released--------------------215
+SCCP.Released--------------------216
 DTAP MM.Authentication Request--------------------12
 SCCP.Connection Confirm--------------------214
-BSSMAP.Clear Command--------------------207
-DTAP MM.Location Updating Accept--------------------209
+BSSMAP.Clear Command--------------------208
+DTAP MM.Location Updating Accept--------------------210
 BSSMAP.Paging--------------------0
 SMS TP.SMS-DELIVER--------------------0
 DTAP CC.Disconnect--------------------0
 BSSMAP.Assignment Complete--------------------0
 DTAP MM.Location Updating Request--------------------216
 BSSMAP.Classmark Update--------------------12
-BSSMAP.Clear Complete--------------------209
+BSSMAP.Clear Complete--------------------210
 DTAP SMS.CP-ACK--------------------0
 DTAP RR.Paging Response--------------------0
 SCCP.Release Complete--------------------0

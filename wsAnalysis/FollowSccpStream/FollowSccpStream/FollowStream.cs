@@ -216,6 +216,9 @@ namespace FollowSccpStream
         {
             if (packetnum % 5000 == 0)
             {
+                //保存1次
+                fs.Save();
+
                 GC.Collect();
                 GC.Collect();
             }

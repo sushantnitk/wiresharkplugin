@@ -23,13 +23,13 @@ namespace FollowSccpStream
         {
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
             //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
-            var messages = common.messagelist.ToLookup(e => e.Value.ip_version_MsgType);
-            Console.WriteLine(messages.Count);
-            message = messages.Select(e => e.Key).ToList();
+            //var messages = common.messagelist.ToLookup(e => e.Value.ip_version_MsgType);
+            //Console.WriteLine(messages.Count);
+            //message = messages.Select(e => e.Key).ToList();
             //messagelist = mydb.LA_update.ToLookup(e => e.PacketNum);
-            initWrite();
-            initFlowCollection();
-            FlowCollectionWrite();
+            //initWrite();
+            //initFlowCollection();
+            //FlowCollectionWrite();
         }
 
         private void initWrite()
@@ -151,6 +151,20 @@ namespace FollowSccpStream
                         }
                 }
             }
+        }
+        public void FlowConsoleWrite(List<int?> a, string opcdpcsccp)
+        {
+            var messagefirst = a.OrderBy(e => e.Value);
+            foreach (var b in messagefirst)
+            {
+                var messageb = common.messagelist[b];
+                sw.Write(opcdpcsccp); sw.Write(",");
+                sw.Write(messageb.PacketNum); sw.Write(",");
+                sw.Write(messageb.PacketTime); sw.Write(",");
+                sw.Write(messageb.ip_version_MsgType + "\n");
+            }
+            sw.Flush();
+
         }
     }
 }

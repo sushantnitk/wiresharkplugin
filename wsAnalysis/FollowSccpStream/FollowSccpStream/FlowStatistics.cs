@@ -132,8 +132,8 @@ namespace FollowSccpStream
                 messageexit = false;
                 foreach (var b in messagefirst)
                 {
-                    //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
-                    var messageb = common.messagelist[b].ip_version_MsgType;
+                    var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
+                   // var messageb = common.messagelist[b].ip_version_MsgType;
                     // var messageb = common.messagelist.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
                     if (messageb == start.Key)
                     {
@@ -157,7 +157,9 @@ namespace FollowSccpStream
             var messagefirst = a.OrderBy(e => e.Value);
             foreach (var b in messagefirst)
             {
-                var messageb = common.messagelist[b];
+                //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).FirstOrDefault();
+                //var messageb = common.messagelist[b];
+                var messageb = common.messagelist.Where(e => e.PacketNum == b).FirstOrDefault();
                 sw.Write(opcdpcsccp); sw.Write(",");
                 sw.Write(messageb.PacketNum); sw.Write(",");
                 sw.Write(messageb.PacketTime); sw.Write(",");

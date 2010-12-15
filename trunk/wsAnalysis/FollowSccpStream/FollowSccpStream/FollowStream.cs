@@ -193,8 +193,9 @@ namespace FollowSccpStream
                     dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr);
                     dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
                     //此处做统计,通过多线程
-                    FlowStatistics(i.PacketNum);
+                    //FlowStatistics(i.PacketNum);
                     Console.WriteLine(i.PacketNum);
+                    FlowConsoleWrite(i.PacketNum);
                 }
 
                 //删除回调记录的主键
@@ -206,10 +207,22 @@ namespace FollowSccpStream
                 }
                 //Thread.Sleep(1);
             }
-            fs.Save();
+            //fs.Save();
+            //结束以后则需要把所有的消息都过一遍
             Console.WriteLine(dFlow.Count());
             Console.WriteLine(dConn.Count());
             Console.ReadKey();
+        }
+        private void FlowConsoleWrite(int? packetnum)
+        {
+            if (packetnum % 5000 == 0)
+            {
+                GC.Collect();
+                GC.Collect();
+            }
+            var value = dFlow[packetnum];
+            var connLookup = dFlow.ToLookup(e => e.Value);
+            Task.Factory.StartNew(() => fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(),value));
         }
 
         private void FlowStatistics(int? packetnum)

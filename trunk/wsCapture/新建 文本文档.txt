@@ -1,0 +1,24 @@
+:: Script to save a wireshark trace
+:: tshark -D to get interface id
+@echo off
+C:
+cd C:\Temp\NetTracing
+set PATH=%PATH%;C:\Program Files\Wireshark
+echo Tracing host 127.1 or 172.1.1.1 or 10.0.0.1
+
+tshark.exe -i 4 -a duration:900 -S -f "tcp and host 127.1 or 172.1.1.1 or 10.0.0.1" -w trace.cap
+
+:: rename the trace with todays timestamp
+set tdtd=none
+set ttrn=none
+set arg="%1"
+for /F "tokens=2-4 delims=/ " %%i in ('date /t') do set tdtd=%%i%%j%%k
+for /F "tokens=5-8 delims=:. " %%i in ('echo.^| time ^| find "current" ') do set ttrn=%%i%%j%%k%%l
+set tufn="trace_%tdtd%%ttrn%.cap"
+
+:: now archive the file
+copy trace.cap %tufn%
+del trace.cap
+echo %tufn% > trace.log
+echo Trace file %tufn% saved at %CD%
+ping localhost -n 30 >nul

@@ -1,0 +1,1 @@
+tshark -r ezsniffer.pcap  -E  separator=;   >  aa.csv

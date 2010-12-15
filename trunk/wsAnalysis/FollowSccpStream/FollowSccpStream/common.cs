@@ -15,7 +15,7 @@ namespace FollowSccpStream
         public static string connString = "Data Source=.\\sqlexpress;Initial Catalog=sz04a_mc_all;Integrated Security=True";
         public static DataClasses1DataContext mydb = new DataClasses1DataContext(connString);
         //public static HashSet<LA_update> messagelist = new HashSet<LA_update>();
-        public static Dictionary<int?, LA_update> messagelist = new Dictionary<int?, LA_update>();
+        public static HashSet<LA_update> messagelist = new HashSet<LA_update>();
         static void InitTable()
         {
             var typeName = "System.Data.Linq.SqlClient.SqlBuilder";

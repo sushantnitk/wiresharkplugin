@@ -28,18 +28,18 @@ namespace FollowSccpStream
             //FollowSccpStream(totalMessge);.OrderBy(e=>e.PacketNum)
 
             //FollowSccpStream(totalMessge);
-
         }
         //通过回调的方式获取 opc+dpc+slr+dlr字典值的关键字的集合
-        //private void FollowSccpStream(IEnumerable<LA_update> totalMessge)
-        public void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
+       // public void FollowSccpStream(IEnumerable<LA_update> totalMessge)
+       // public void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
+        public void FollowSccpStream(LA_update i)
         {
             //foreach (LA_update i in totalMessge)
-            var total = totalMessge.OrderBy(e => e.Key);
-            foreach (var dic in total)
-            {
-                var i = dic.Value;
-                //common.messagelist.Add(i);
+            //var total = totalMessge.OrderBy(e => e.Key);
+            //foreach (var dic in total)
+            //{
+                //var i = dic.Value;
+                common.messagelist.Add(i);
                 //Console.WriteLine(i.PacketNum);
                 //寻呼消息
                 if (i.sccp_slr == null && i.sccp_dlr == null)
@@ -195,7 +195,11 @@ namespace FollowSccpStream
                     //此处做统计,通过多线程
                     //FlowStatistics(i.PacketNum);
                     Console.WriteLine(i.PacketNum);
-                    FlowConsoleWrite(i.PacketNum);
+                    //FlowConsoleWrite(i.PacketNum);
+                    var value = dFlow[i.PacketNum];
+                    var connLookup = dFlow.ToLookup(e => e.Value);
+                    //Task.Factory.StartNew(() => fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(),value));
+                    fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value);
                 }
 
                 //删除回调记录的主键
@@ -206,12 +210,12 @@ namespace FollowSccpStream
                         _dCallback.Remove(k);
                 }
                 //Thread.Sleep(1);
-            }
+            //}
             //fs.Save();
             //结束以后则需要把所有的消息都过一遍
-            Console.WriteLine(dFlow.Count());
-            Console.WriteLine(dConn.Count());
-            Console.ReadKey();
+            //Console.WriteLine(dFlow.Count());
+            //Console.WriteLine(dConn.Count());
+            //Console.ReadKey();
         }
         private void FlowConsoleWrite(int? packetnum)
         {

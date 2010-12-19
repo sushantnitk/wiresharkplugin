@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="mc_sz04a" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=mc_sz04a;Integrated Security=True" SettingsObjectName="FollowSccpStream.Properties.Settings" SettingsPropertyName="mc_sz04aConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LA_update" Member="LA_update">
+    <Type Name="LA_update">
+      <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BeginFrameNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[PacketTime(ms)]" Member="PacketTime_ms_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DumpFor" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ip_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ip_version_MsgType" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_slr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_dlr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_src" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_dst" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="imsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tmsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_opc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_dpc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LA_update1" Member="LA_update1">
+    <Type Name="LA_update1">
+      <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BeginFrameNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[PacketTime(ms)]" Member="PacketTime_ms_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DumpFor" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ip_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ip_version_MsgType" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_slr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sccp_dlr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_src" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ip_dst" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="imsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tmsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_opc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="m3ua_dpc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="opcdpcsccp" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

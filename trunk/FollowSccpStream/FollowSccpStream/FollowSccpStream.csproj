@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="EntityDataReader.cs" />
     <Compile Include="FlowStatistics.cs" />
-    <Compile Include="common.cs" />
+    <Compile Include="CommonFunction.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

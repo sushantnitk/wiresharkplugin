@@ -7,7 +7,8 @@ namespace FollowSccpStream
 {
     class FlowStatistics
     {
-        System.IO.StreamWriter sw = new System.IO.StreamWriter("log.txt", false);
+        System.IO.StreamWriter sw = new System.IO.StreamWriter(@"f:\log.txt", false);
+        System.IO.StreamWriter swdb = new System.IO.StreamWriter(@"f:\log1.txt", false);
         //DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
         Dictionary<string, int> myDic = new Dictionary<string, int>();
         Dictionary<string, int>[] newDic = new Dictionary<string, int>[6];
@@ -16,6 +17,8 @@ namespace FollowSccpStream
         Dictionary<string, Dictionary<string, int>> _startmessage = new Dictionary<string, Dictionary<string, int>>();
         List<string> message = new List<string>();
         bool messageexit = false;
+        //session编号
+        private int statIndex = 0;
         //ILookup<int?, LA_update> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
@@ -133,36 +136,45 @@ namespace FollowSccpStream
             }
             sw.Flush();
             sw.Close();
+            swdb.Close();
         }
 
-        public void FlowStatics(Dictionary<int?,LA_update> asccp)
-        {          
-           // asccp = asccp.OrderBy(e => e.Key);
+        public void FlowStatics(Dictionary<int?, LA_update> asccp)
+        {
             foreach (var start in _startmessage)
             {
+                //消息置位
                 messageexit = false;
-                foreach (var a in asccp)
+                //消息顺序排序
+                foreach (var a in asccp.OrderBy(e => e.Key))
                 {
-                    //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
-                    //var messageb = common.messagelist[b].ip_version_MsgType;
-                    //var messageb = common.messagelist.Where(e => e.PacketNum == b).Select(e => e.ip_version_MsgType).FirstOrDefault();
                     var messageb = a.Value.ip_version_MsgType;
                     if (messageb == start.Key)
                     {
                         messageexit = true;
                     }
                     if (messageexit == true)
-                        foreach (KeyValuePair<string, int> kvp in myDic)
+                        if (myDic.ContainsKey(messageb))
                         {
-                            if (messageb == kvp.Key)
-                            {
-                                var c = startmessage[start.Key];
-                                c[kvp.Key] = c[kvp.Key] + 1;
-                                //newDic[kvp.Key] = newDic[kvp.Key] + 1;
-                            }
+                            var c = startmessage[start.Key];
+                            c[messageb] = c[messageb] + 1;
                         }
+                    //flow写入数据库
+                    if (messageexit == true)
+                    {
+                        swdb.Write(statIndex);
+                        swdb.Write(",");
+                        swdb.Write(a.Value.PacketNum);
+                        swdb.Write(",");
+                        swdb.Write(a.Value.PacketTime);
+                        swdb.Write(",");
+                        swdb.Write(a.Value.ip_version_MsgType);
+                        swdb.Write("\n");
+                        swdb.Flush();
+                    }
                 }
             }
+            statIndex++;
         }
         public void FlowConsoleWrite(List<int?> a, string opcdpcsccp)
         {

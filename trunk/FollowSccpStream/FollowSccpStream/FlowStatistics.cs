@@ -8,7 +8,7 @@ namespace FollowSccpStream
     class FlowStatistics
     {
         System.IO.StreamWriter sw = new System.IO.StreamWriter("log.txt", false);
-        DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
+        //DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
         Dictionary<string, int> myDic = new Dictionary<string, int>();
         Dictionary<string, int>[] newDic = new Dictionary<string, int>[6];
         //List<string> startmessage = new List<string>();
@@ -19,17 +19,12 @@ namespace FollowSccpStream
         //ILookup<int?, LA_update> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
-        public FlowStatistics()
+        public FlowStatistics(List<string> message)
         {
-            //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
-            //message = mydb.LA_update.Select(e => e.ip_version_MsgType).Distinct().ToList();
-            //var messages = common.messagelist.ToLookup(e => e.Value.ip_version_MsgType);
-            //Console.WriteLine(messages.Count);
-            //message = messages.Select(e => e.Key).ToList();
-            //messagelist = mydb.LA_update.ToLookup(e => e.PacketNum);
-            //initWrite();
-            //initFlowCollection();
-            //FlowCollectionWrite();
+            this.message = message;
+            initMessageDic();
+            initFlowCollection();
+            mydicClone();
         }
 
         private void initWrite()
@@ -73,33 +68,51 @@ namespace FollowSccpStream
             */
         }
 
-        private void FlowCollectionWrite()
+        //列出所有出现的消息->myDic
+        private void initMessageDic()
+        {
+            //获取消息列表字典
+            foreach (string m in message)
+            {
+                myDic.Add(m, 0);
+                Console.Write(m + "--------------------");
+                Console.WriteLine(0);
+
+                sw.Write(m + "--------------------");
+                sw.WriteLine(0);
+
+            }
+            sw.Flush();
+        }
+
+        //把myDic的做n次Clone
+        private void mydicClone()
         {
             //给初始化字典赋值
             int i = 0;
-            //for (int i = 0; i < startmessage.Count(); i++)
-             foreach (var s in startmessage)
+            foreach (var s in startmessage)
             {
-                // s.Value = newDic[i];
                 newDic[i] = new Dictionary<string, int>();
                 foreach (KeyValuePair<string, int> pair in myDic)
-                {
-                    //Console.WriteLine(s.Key);
-                    //Console.WriteLine(s.Value);
                     newDic[i].Add(pair.Key, 0);
-                }
                 i++;
             }
 
-            foreach (var m in startmessage)
-                _startmessage.Add(m.Key, newDic[0]);
+            startmessageClone();
 
-            int index=0;
+            int index = 0;
             foreach (var m in _startmessage)
             {
                 startmessage[m.Key] = newDic[index];
                 index++;
             }
+        }
+
+        //把startmessage的内容做1次Clone
+        private void startmessageClone()
+        {
+            foreach (var m in startmessage)
+                _startmessage.Add(m.Key, myDic);
         }
 
         public void Save()

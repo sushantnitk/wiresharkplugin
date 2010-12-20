@@ -7,57 +7,57 @@ namespace FollowSccpStream
 {
     class FlowStatistics
     {
-        System.IO.StreamWriter sw = new System.IO.StreamWriter(@"f:\log.txt", false);
-        System.IO.StreamWriter swdb = new System.IO.StreamWriter(@"f:\log1.txt", false);
+        System.IO.StreamWriter StatisticsWriter= new System.IO.StreamWriter(@"f:\log.txt", false);
+        System.IO.StreamWriter FlowListWriter = new System.IO.StreamWriter(@"f:\log1.txt", false);
         //DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
-        Dictionary<string, int> myDic = new Dictionary<string, int>();
-        Dictionary<string, int>[] newDic = new Dictionary<string, int>[6];
+        Dictionary<string, int> dMessageList = new Dictionary<string, int>();
+        Dictionary<string, int>[] dFlowMessageList = new Dictionary<string, int>[6];
         //List<string> startmessage = new List<string>();
-        Dictionary<string, Dictionary<string, int>> startmessage = new Dictionary<string, Dictionary<string, int>>();
-        Dictionary<string, Dictionary<string, int>> _startmessage = new Dictionary<string, Dictionary<string, int>>();
-        List<string> message = new List<string>();
-        bool messageexit = false;
+        Dictionary<string, Dictionary<string, int>> dFlowStartMessage = new Dictionary<string, Dictionary<string, int>>();
+        Dictionary<string, Dictionary<string, int>> dFlowStartMessageClone = new Dictionary<string, Dictionary<string, int>>();
+        List<string> MessageList = new List<string>();
+        bool MessageExit = false;
         //session编号
-        private int statIndex = 0;
+        private int StatIndex = 0;
         //ILookup<int?, LA_update> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
         public FlowStatistics(List<string> message)
         {
-            this.message = message;
-            initMessageDic();
-            initFlowCollection();
-            mydicClone();
+            this.MessageList = message;
+            InitMessageDic();
+            InitFlowCollection();
+            CloneMessageDic();
         }
 
-        private void initWrite()
+        private void InitWrite()
         {
             //获取消息列表字典
-            foreach (string m in message)
+            foreach (string m in MessageList)
             {
-                myDic.Add(m, 0);
+                dMessageList.Add(m, 0);
                 Console.Write(m + "--------------------");
                 Console.WriteLine(0);
 
-                sw.Write(m + "--------------------");
-                sw.WriteLine(0);
+                StatisticsWriter.Write(m + "--------------------");
+                StatisticsWriter.WriteLine(0);
 
             }
-            sw.Flush();
+            StatisticsWriter.Flush();
         }
 
-        private void initFlowCollection()
+        private void InitFlowCollection()
         {
             //初始化统计表字典
             //for (int i = 0; i < startmessage.Count(); i++)
             //    newDic[i] = new Dictionary<string, int>();
 
-            startmessage.Add("DTAP MM.CM Service Request", newDic[0]);
-            startmessage.Add("BSSMAP.Paging", newDic[0]);
-            startmessage.Add("BSSMAP.Handover Request", newDic[0]);
-            startmessage.Add("BSSMAP.Handover Performed", newDic[0]);
-            startmessage.Add("BSSMAP.Handover Required", newDic[0]);
-            startmessage.Add("DTAP MM.Location Updating Request", newDic[0]);
+            dFlowStartMessage.Add("DTAP MM.CM Service Request", dFlowMessageList[0]);
+            dFlowStartMessage.Add("BSSMAP.Paging", dFlowMessageList[0]);
+            dFlowStartMessage.Add("BSSMAP.Handover Request", dFlowMessageList[0]);
+            dFlowStartMessage.Add("BSSMAP.Handover Performed", dFlowMessageList[0]);
+            dFlowStartMessage.Add("BSSMAP.Handover Required", dFlowMessageList[0]);
+            dFlowStartMessage.Add("DTAP MM.Location Updating Request", dFlowMessageList[0]);
             //statics.Item1 = "DTAP MM.Location Updating Request";
             /*
             NGN指标定义方法
@@ -72,124 +72,124 @@ namespace FollowSccpStream
         }
 
         //列出所有出现的消息->myDic
-        private void initMessageDic()
+        private void InitMessageDic()
         {
             //获取消息列表字典
-            foreach (string m in message)
+            foreach (string m in MessageList)
             {
-                myDic.Add(m, 0);
+                dMessageList.Add(m, 0);
                 Console.Write(m + "--------------------");
                 Console.WriteLine(0);
 
-                sw.Write(m + "--------------------");
-                sw.WriteLine(0);
+                StatisticsWriter.Write(m + "--------------------");
+                StatisticsWriter.WriteLine(0);
 
             }
-            sw.Flush();
+            StatisticsWriter.Flush();
         }
 
         //把myDic的做n次Clone
-        private void mydicClone()
+        private void CloneMessageDic()
         {
             //给初始化字典赋值
             int i = 0;
-            foreach (var s in startmessage)
+            foreach (var s in dFlowStartMessage)
             {
-                newDic[i] = new Dictionary<string, int>();
-                foreach (KeyValuePair<string, int> pair in myDic)
-                    newDic[i].Add(pair.Key, 0);
+                dFlowMessageList[i] = new Dictionary<string, int>();
+                foreach (KeyValuePair<string, int> pair in dMessageList)
+                    dFlowMessageList[i].Add(pair.Key, 0);
                 i++;
             }
 
-            startmessageClone();
+            CloneStartMessage();
 
             int index = 0;
-            foreach (var m in _startmessage)
+            foreach (var m in dFlowStartMessageClone)
             {
-                startmessage[m.Key] = newDic[index];
+                dFlowStartMessage[m.Key] = dFlowMessageList[index];
                 index++;
             }
         }
 
         //把startmessage的内容做1次Clone
-        private void startmessageClone()
+        private void CloneStartMessage()
         {
-            foreach (var m in startmessage)
-                _startmessage.Add(m.Key, myDic);
+            foreach (var m in dFlowStartMessage)
+                dFlowStartMessageClone.Add(m.Key, dMessageList);
         }
 
         public void Save()
         {
-            foreach (var m in startmessage)
+            foreach (var m in dFlowStartMessage)
             {
                 Console.Write("**************"+m.Key + "**************");
-                sw.Write("**************"+m.Key + "**************");
+                StatisticsWriter.Write("**************"+m.Key + "**************");
                 Console.WriteLine("**************");
-                sw.WriteLine("**************");
+                StatisticsWriter.WriteLine("**************");
                 foreach (var n in m.Value)
                 {
                     Console.Write(n.Key + "--------------------");
                     Console.WriteLine(n.Value);
-                    sw.Write(n.Key + "--------------------");
-                    sw.WriteLine(n.Value);
+                    StatisticsWriter.Write(n.Key + "--------------------");
+                    StatisticsWriter.WriteLine(n.Value);
                 }
             }
-            sw.Flush();
-            sw.Close();
-            swdb.Close();
+            StatisticsWriter.Flush();
+            StatisticsWriter.Close();
+            FlowListWriter.Close();
         }
 
-        public void FlowStatics(Dictionary<int?, LA_update> asccp)
+        public void CountFlow(Dictionary<int?, LA_update> asccp)
         {
-            foreach (var start in _startmessage)
+            foreach (var start in dFlowStartMessageClone)
             {
                 //消息置位
-                messageexit = false;
+                MessageExit = false;
                 //消息顺序排序
                 foreach (var a in asccp.OrderBy(e => e.Key))
                 {
                     var messageb = a.Value.ip_version_MsgType;
                     if (messageb == start.Key)
                     {
-                        messageexit = true;
+                        MessageExit = true;
                     }
-                    if (messageexit == true)
-                        if (myDic.ContainsKey(messageb))
+                    if (MessageExit == true)
+                        if (dMessageList.ContainsKey(messageb))
                         {
-                            var c = startmessage[start.Key];
+                            var c = dFlowStartMessage[start.Key];
                             c[messageb] = c[messageb] + 1;
                         }
                     //flow写入数据库
-                    if (messageexit == true)
+                    if (MessageExit == true)
                     {
-                        swdb.Write(statIndex);
-                        swdb.Write(",");
-                        swdb.Write(a.Value.PacketNum);
-                        swdb.Write(",");
-                        swdb.Write(a.Value.PacketTime);
-                        swdb.Write(",");
-                        swdb.Write(a.Value.ip_version_MsgType);
-                        swdb.Write("\n");
-                        swdb.Flush();
+                        FlowListWriter.Write(StatIndex);
+                        FlowListWriter.Write(",");
+                        FlowListWriter.Write(a.Value.PacketNum);
+                        FlowListWriter.Write(",");
+                        FlowListWriter.Write(a.Value.PacketTime);
+                        FlowListWriter.Write(",");
+                        FlowListWriter.Write(a.Value.ip_version_MsgType);
+                        FlowListWriter.Write("\n");
+                        FlowListWriter.Flush();
                     }
                 }
             }
-            statIndex++;
+            StatIndex++;
         }
-        public void FlowConsoleWrite(List<int?> a, string opcdpcsccp)
+        public void WriteFlowConsole(List<int?> a, string opcdpcsccp)
         {
             var messagefirst = a.OrderBy(e => e.Value);
             foreach (var b in messagefirst)
             {
                 //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).FirstOrDefault();
                 //var messageb = common.messagelist[b];
-                var messageb = common.messagelist.Where(e => e.PacketNum == b).FirstOrDefault();
-                sw.Write(opcdpcsccp); sw.Write(",");
-                sw.Write(messageb.PacketNum); sw.Write(",");
-                sw.Write(messageb.PacketTime); sw.Write(",");
-                sw.Write(messageb.ip_version_MsgType + "\n");
+                var messageb = CommonFunction.MessageList.Where(e => e.PacketNum == b).FirstOrDefault();
+                StatisticsWriter.Write(opcdpcsccp); StatisticsWriter.Write(",");
+                StatisticsWriter.Write(messageb.PacketNum); StatisticsWriter.Write(",");
+                StatisticsWriter.Write(messageb.PacketTime); StatisticsWriter.Write(",");
+                StatisticsWriter.Write(messageb.ip_version_MsgType + "\n");
             }
-            sw.Flush();
+            StatisticsWriter.Flush();
 
         }
     }

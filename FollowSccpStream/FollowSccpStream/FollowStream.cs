@@ -23,10 +23,10 @@ namespace FollowSccpStream
         //实例化一个字典，以便计算哪些消息还没有做关联
         private HashSet<LA_update> mList = new HashSet<LA_update>();
         //实例化一个统计方法，在消息流遍历的过程中进行统计
-        FlowStatistics fs;
+        public FlowStatistics flowstat;
         public FollowStream(List<string> message)
         {
-            fs = new FlowStatistics(message);
+            flowstat = new FlowStatistics(message);
             //FollowSccpStream(totalMessge);.OrderBy(e=>e.PacketNum)
 
             //FollowSccpStream(totalMessge);
@@ -111,7 +111,6 @@ namespace FollowSccpStream
             {
                 //Flow正常增加包标签
                 dFlow.Add(i.PacketNum, i.m3ua_opc + i.m3ua_dpc + i.sccp_slr + i.sccp_dlr);
-
                 //正常增加稀疏矩阵
                 if (!dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr))
                 {
@@ -127,9 +126,6 @@ namespace FollowSccpStream
                             hRemovecall.Add(call.Key);
                         }
                 }
-
-
-
                 if (!dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr))
                 {
                     dConn.Add(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr, i.m3ua_opc + i.m3ua_dpc + i.sccp_slr + i.sccp_dlr);
@@ -209,9 +205,8 @@ namespace FollowSccpStream
         }
         public void sccprelease(LA_update i)
         {
-
             //删除稀疏矩阵的主键
-            if (i.ip_version_MsgType == "SCCP.Released")
+            if (i.ip_version_MsgType.IndexOf("SCCP.Release") != -1)
             {
                 dConn.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_dlr);
                 dConn.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_slr);
@@ -219,7 +214,7 @@ namespace FollowSccpStream
                 dConn.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
                 //此处做统计,通过多线程
                 FlowStatistics(i.PacketNum);
-                //Console.WriteLine(i.PacketNum);
+                Console.WriteLine(i.PacketNum);
                 //Task.Factory.StartNew(()=>fs.FlowConsoleWrite
                 //FlowConsoleWrite(i.PacketNum);
                 //var value = dFlow[i.PacketNum];
@@ -228,6 +223,7 @@ namespace FollowSccpStream
                 // fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value);
             }
         }
+
         public void callbackrelease(LA_update i)
         {
 
@@ -255,34 +251,31 @@ namespace FollowSccpStream
             }
             var value = dFlow[packetnum];
             var connLookup = dFlow.ToLookup(e => e.Value);
-            Task.Factory.StartNew(() => fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value));
+            Task.Factory.StartNew(() => flowstat.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value));
         }
 
         private void Dispose(int? packetnum)
         {
-            if (packetnum % 5000 == 0)
-            {
-                //保存1次
-                fs.Save();
+            if (packetnum % 10000 == 0)
                 GC.Collect();
-                GC.Collect();
-            }
         }
 
         private void FlowStatistics(int? packetnum)
         {
+            //定时清理内存
+            Dispose(packetnum);
             //从dFlow和mList获取消息列表
             var value = dFlow[packetnum];
             var connLookup = dFlow.ToLookup(e => e.Value);
             var packetNumList = connLookup[value].Select(e => e.Key).ToList();
             var asccp = mList.Where(e => packetNumList.Contains(e.PacketNum)).ToDictionary(e => e.PacketNum);
-            Console.WriteLine(mList.Count);
+            //Console.WriteLine(mList.Count);
             //从mList删除已经计算过的消息列表
             foreach (var p in asccp)
                 mList.Remove(p.Value);
-            Console.WriteLine(mList.Count);
+            //Console.WriteLine(mList.Count);
             //开始进行统计
-            Task.Factory.StartNew(() => fs.FlowStatics(asccp));
+            Task.Factory.StartNew(() => flowstat.FlowStatics(asccp));
         }
     }
 }

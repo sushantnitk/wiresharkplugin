@@ -7,18 +7,21 @@ if gui_enabled() then
 end
 function dialog_menu()
     --sccp.dlr==0xee089d || sccp.slr==0xee089d || sccp.dlr==0xdd002f || sccp.slr==0xdd002f
+	--TMSI/P-TMSI: 0x06a04e7d
+	--BCD Digits: 460021714517904
     function dialog_func(imsi,tmsi,slr,dlr)
         local win = TextWindow.new("Follow SCCP Stream");
-		imsi=0
-		tmsi=0
-		slr=0
-		dlr=0
+		if string.len(imsi) ~= 15 then imsi=0 end
+		if string.sub(tmsi,1,1) ~= "0" then tmsi=0 end
+		if string.sub(slr,1,1) ~= "0" then slr=0 end
+		if string.sub(dlr,1,1) ~= "0" then dlr=0 end
         win:set(" gsm_a.imsi=="..imsi.." || ")
 		win:append(" gsm_a.tmsi==" .. tmsi.." || ")
         win:append(" sccp.slr==" .. slr .." || sccp.dlr==".. slr.." || ")
         win:append(" sccp.slr==" .. dlr .." || sccp.dlr==".. dlr);
 		set_filter(tostring(win))
     end
+
     new_dialog("Dialog Test",dialog_func,"imsi","tmsi","slr","dlr")
 end
 -- optional 3rd parameter to register_menu. See http://www.wireshark.org/docs/wsug_html_chunked/wsluarm_modules.html

@@ -9,7 +9,7 @@ namespace FollowSccpStream
 {
     class FollowStream
     {
-        private DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
+        //private DataClasses1DataContext mydb = new DataClasses1DataContext(common.connString);
         //没有出现sccp对之前的单tmsi,slr,dlr回调字典
         private Dictionary<int?, string> dCallback = new Dictionary<int?, string>();
         //没有出现sccp对之前的imsi回调字典的补充
@@ -20,12 +20,13 @@ namespace FollowSccpStream
         private Dictionary<string, string> dConn = new Dictionary<string, string>();
         //opc+dpc+slr+dlr索引字典，索引到包标签
         public Dictionary<int?, string> dFlow = new Dictionary<int?, string>();
-        //
+        //实例化一个字典，以便计算哪些消息还没有做关联
         private HashSet<LA_update> mList = new HashSet<LA_update>();
-        //
-        FlowStatistics fs = new FlowStatistics();
-        public FollowStream()
+        //实例化一个统计方法，在消息流遍历的过程中进行统计
+        FlowStatistics fs;
+        public FollowStream(List<string> message)
         {
+            fs = new FlowStatistics(message);
             //FollowSccpStream(totalMessge);.OrderBy(e=>e.PacketNum)
 
             //FollowSccpStream(totalMessge);
@@ -36,6 +37,12 @@ namespace FollowSccpStream
         public void FollowSccpStream(LA_update i)
         {
             mList.Add(i);
+            paging(i);
+            pagingresponse(i);
+            connetionconfirm(i);
+            continuemessage(i);
+            sccprelease(i);
+            callbackrelease(i);
             //foreach (LA_update i in totalMessge)
             //var total = totalMessge.OrderBy(e => e.Key);
             //foreach (var dic in total)
@@ -43,6 +50,9 @@ namespace FollowSccpStream
             //var i = dic.Value;
             //common.messagelist.Add(i);
             //Console.WriteLine(i.PacketNum);
+        }
+        private void paging(LA_update i)
+        {
             //寻呼消息
             if (i.sccp_slr == null && i.sccp_dlr == null)
             {
@@ -59,6 +69,10 @@ namespace FollowSccpStream
                         dFlow.Add(i.PacketNum, i.imsi);
                 }
             }
+        }
+
+        public void pagingresponse(LA_update i)
+        {
 
             //寻呼响应
             if (i.sccp_slr != null && i.sccp_dlr == null)
@@ -88,7 +102,10 @@ namespace FollowSccpStream
                         if (call.Value == i.imsi)
                             dCallback[call.Key] = i.m3ua_opc + i.m3ua_dpc + i.sccp_slr;
             }
+        }
 
+        public void connetionconfirm(LA_update i)
+        {
             //CC消息
             if (i.sccp_slr != null && i.sccp_dlr != null)
             {
@@ -110,6 +127,7 @@ namespace FollowSccpStream
                             hRemovecall.Add(call.Key);
                         }
                 }
+
 
 
                 if (!dConn.ContainsKey(i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr))
@@ -155,7 +173,9 @@ namespace FollowSccpStream
                         }
                 }
             }
-
+        }
+        public void continuemessage(LA_update i)
+        {
             //后续消息
             if (i.sccp_slr == null && i.sccp_dlr != null)
             {
@@ -186,6 +206,9 @@ namespace FollowSccpStream
                             //开始记录包标签
                             dCallback[call.Key] = i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr;
             }
+        }
+        public void sccprelease(LA_update i)
+        {
 
             //删除稀疏矩阵的主键
             if (i.ip_version_MsgType == "SCCP.Released")
@@ -204,6 +227,9 @@ namespace FollowSccpStream
                 //Task.Factory.StartNew(() => fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(),value));
                 // fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value);
             }
+        }
+        public void callbackrelease(LA_update i)
+        {
 
             //删除回调记录的主键
             foreach (var k in hRemovecall)
@@ -245,15 +271,17 @@ namespace FollowSccpStream
 
         private void FlowStatistics(int? packetnum)
         {
+            //从dFlow和mList获取消息列表
             var value = dFlow[packetnum];
             var connLookup = dFlow.ToLookup(e => e.Value);
             var packetNumList = connLookup[value].Select(e => e.Key).ToList();
             var asccp = mList.Where(e => packetNumList.Contains(e.PacketNum)).ToDictionary(e => e.PacketNum);
             Console.WriteLine(mList.Count);
+            //从mList删除已经计算过的消息列表
             foreach (var p in asccp)
                 mList.Remove(p.Value);
-            //mList.Except(asccp.Values); mList = mList.Remove(asccp.Values);
             Console.WriteLine(mList.Count);
+            //开始进行统计
             Task.Factory.StartNew(() => fs.FlowStatics(asccp));
         }
     }

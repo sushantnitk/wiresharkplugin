@@ -22,6 +22,12 @@ namespace FollowSccpStream
         //ILookup<int?, LA_update> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
+        public FlowStatistics()
+        {
+            InitMessageDic();
+            InitFlowCollection();
+            CloneMessageDic();
+        }
         public FlowStatistics(List<string> message)
         {
             this.MessageList = message;

@@ -24,6 +24,10 @@ namespace FollowSccpStream
         private HashSet<LA_update> hListMessage = new HashSet<LA_update>();
         //实例化一个统计方法，在消息流遍历的过程中进行统计
         public FlowStatistics FlowStatistics;
+        public FollowStream()
+        {
+            FlowStatistics = new FlowStatistics();
+        }
         public FollowStream(List<string> message)
         {
             FlowStatistics = new FlowStatistics(message);

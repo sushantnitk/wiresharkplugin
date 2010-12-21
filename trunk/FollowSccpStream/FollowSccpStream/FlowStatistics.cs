@@ -19,7 +19,7 @@ namespace FollowSccpStream
         bool MessageExit = false;
         //session编号
         private int StatIndex = 0;
-        //ILookup<int?, LA_update> messagelist;
+        //ILookup<int?, AMessageDetail> messagelist;
         //Tuple<string, Dictionary<string, int>> statics;
 
         public FlowStatistics()
@@ -145,7 +145,7 @@ namespace FollowSccpStream
             FlowListWriter.Close();
         }
 
-        public void CountFlow(Dictionary<int?, LA_update> asccp)
+        public void CountFlow(Dictionary<int?,AMessageDetail> asccp)
         {
             foreach (var start in dFlowStartMessageClone)
             {
@@ -154,7 +154,7 @@ namespace FollowSccpStream
                 //消息顺序排序
                 foreach (var a in asccp.OrderBy(e => e.Key))
                 {
-                    var messageb = a.Value.ip_version_MsgType;
+                    var messageb = a.Value.message_type;
                     if (messageb == start.Key)
                     {
                         MessageExit = true;
@@ -174,7 +174,7 @@ namespace FollowSccpStream
                         FlowListWriter.Write(",");
                         FlowListWriter.Write(a.Value.PacketTime);
                         FlowListWriter.Write(",");
-                        FlowListWriter.Write(a.Value.ip_version_MsgType);
+                        FlowListWriter.Write(a.Value.message_type);
                         FlowListWriter.Write("\n");
                         FlowListWriter.Flush();
                     }
@@ -183,7 +183,7 @@ namespace FollowSccpStream
             StatIndex++;
         }
 
-        public void CountPcapFlow(Dictionary<int?, LA_update> asccp)
+        public void CountPcapFlow(Dictionary<int, AMessageDetail> asccp)
         {
             foreach (var a in asccp.OrderBy(e => e.Key))
             {
@@ -191,9 +191,13 @@ namespace FollowSccpStream
                 FlowListWriter.Write(",");
                 FlowListWriter.Write(a.Value.PacketNum);
                 FlowListWriter.Write(",");
-                FlowListWriter.Write(a.Value.PacketTime);
+                FlowListWriter.Write(a.Value.PacketTime.ToString("HH:mm:ss.fff")); 
                 FlowListWriter.Write(",");
-                FlowListWriter.Write(a.Value.ip_version_MsgType);
+                FlowListWriter.Write(a.Value.message_type);
+                //FlowListWriter.Write(a.Value.m3ua_opc);
+                //FlowListWriter.Write(a.Value.m3ua_dpc);
+                //FlowListWriter.Write(a.Value.sccp_slr);
+                //FlowListWriter.Write(a.Value.sccp_dlr);
                 FlowListWriter.Write("\n");
                 FlowListWriter.Flush();
             }
@@ -205,13 +209,13 @@ namespace FollowSccpStream
             var messagefirst = a.OrderBy(e => e.Value);
             foreach (var b in messagefirst)
             {
-                //var messageb = mydb.LA_update.Where(e => e.PacketNum == b).FirstOrDefault();
+                //var messageb = mydb.AMessageDetail.Where(e => e.PacketNum == b).FirstOrDefault();
                 //var messageb = common.messagelist[b];
                 var messageb = CommonFunction.MessageList.Where(e => e.PacketNum == b).FirstOrDefault();
                 StatisticsWriter.Write(opcdpcsccp); StatisticsWriter.Write(",");
                 StatisticsWriter.Write(messageb.PacketNum); StatisticsWriter.Write(",");
                 StatisticsWriter.Write(messageb.PacketTime); StatisticsWriter.Write(",");
-                StatisticsWriter.Write(messageb.ip_version_MsgType + "\n");
+                StatisticsWriter.Write(messageb.message_type + "\n");
             }
             StatisticsWriter.Flush();
 

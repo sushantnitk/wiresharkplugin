@@ -21,7 +21,7 @@ namespace FollowSccpStream
         //opc+dpc+slr+dlr索引字典，索引到包标签
         public Dictionary<int?, string> dListFlow = new Dictionary<int?, string>();
         //实例化一个字典，以便计算哪些消息还没有做关联
-        private HashSet<LA_update> hListMessage = new HashSet<LA_update>();
+        private HashSet<AMessageDetail> hListMessage = new HashSet<AMessageDetail>();
         //实例化一个统计方法，在消息流遍历的过程中进行统计
         public FlowStatistics FlowStatistics;
         public FollowStream()
@@ -36,9 +36,9 @@ namespace FollowSccpStream
             //FollowSccpStream(totalMessge);
         }
         //通过回调的方式获取 opc+dpc+slr+dlr字典值的关键字的集合
-        // public void FollowSccpStream(IEnumerable<LA_update> totalMessge)
-        // public void FollowSccpStream(Dictionary<int?, LA_update> totalMessge)
-        public void FollowSccpStream(LA_update i)
+        // public void FollowSccpStream(IEnumerable<AMessageDetail> totalMessge)
+        // public void FollowSccpStream(Dictionary<int?, AMessageDetail> totalMessge)
+        public void FollowSccpStream(AMessageDetail i)
         {
             hListMessage.Add(i);
             RecordPaging(i);
@@ -47,7 +47,7 @@ namespace FollowSccpStream
             RecordContinueMessage(i);
             RecordSccpRelease(i);
             ReleaseCallback(i);
-            //foreach (LA_update i in totalMessge)
+            //foreach (AMessageDetail i in totalMessge)
             //var total = totalMessge.OrderBy(e => e.Key);
             //foreach (var dic in total)
             //{
@@ -55,7 +55,7 @@ namespace FollowSccpStream
             //common.messagelist.Add(i);
             //Console.WriteLine(i.PacketNum);
         }
-        private void RecordPaging(LA_update i)
+        private void RecordPaging(AMessageDetail i)
         {
             //寻呼消息
             if (i.sccp_slr == null && i.sccp_dlr == null)
@@ -75,7 +75,7 @@ namespace FollowSccpStream
             }
         }
 
-        public void RecordPagingResponse(LA_update i)
+        public void RecordPagingResponse(AMessageDetail i)
         {
 
             //寻呼响应
@@ -108,7 +108,7 @@ namespace FollowSccpStream
             }
         }
 
-        public void RecordConnetionConfirm(LA_update i)
+        public void RecordConnetionConfirm(AMessageDetail i)
         {
             //CC消息
             if (i.sccp_slr != null && i.sccp_dlr != null)
@@ -174,7 +174,7 @@ namespace FollowSccpStream
                 }
             }
         }
-        public void RecordContinueMessage(LA_update i)
+        public void RecordContinueMessage(AMessageDetail i)
         {
             //后续消息
             if (i.sccp_slr == null && i.sccp_dlr != null)
@@ -207,10 +207,10 @@ namespace FollowSccpStream
                             dListCallback[call.Key] = i.m3ua_opc + i.m3ua_dpc + i.sccp_dlr;
             }
         }
-        public void RecordSccpRelease(LA_update i)
+        public void RecordSccpRelease(AMessageDetail i)
         {
             //删除稀疏矩阵的主键
-            if (i.ip_version_MsgType.IndexOf("Release") != -1 )
+            if (i.message_type == "RLC" || i.message_type == "RLSD" || i.message_type.IndexOf("Release")!=-1)
             {
                 dListConnetion.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_dlr);
                 dListConnetion.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_slr);
@@ -218,18 +218,11 @@ namespace FollowSccpStream
                 dListConnetion.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
                 //此处做统计,通过多线程
                 CountFlow(i.PacketNum);
-
-                Console.WriteLine(i.PacketNum);
-                //Task.Factory.StartNew(()=>fs.FlowConsoleWrite
-                //FlowConsoleWrite(i.PacketNum);
-                //var value = dFlow[i.PacketNum];
-                //var connLookup = dFlow.ToLookup(e => e.Value);
-                //Task.Factory.StartNew(() => fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(),value));
-                // fs.FlowConsoleWrite(connLookup[value].Select(e => e.Key).ToList(), value);
+                Console.WriteLine(i.PacketNum);;
             }
         }
 
-        public void ReleaseCallback(LA_update i)
+        public void ReleaseCallback(AMessageDetail i)
         {
 
             //删除回调记录的主键
@@ -239,13 +232,7 @@ namespace FollowSccpStream
                 if (dListCallbackClone.ContainsKey(k))
                     dListCallbackClone.Remove(k);
             }
-            //Thread.Sleep(1);
-            //}
-            //fs.Save();
-            //结束以后则需要把所有的消息都过一遍
-            //Console.WriteLine(dFlow.Count());
-            //Console.WriteLine(dConn.Count());
-            //Console.ReadKey();
+
         }
         private void FlowConsoleWrite(int? packetnum)
         {

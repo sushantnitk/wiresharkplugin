@@ -1,3 +1,0 @@
-46,307,2010-11-29 19:58:54,DTAP MM.Location Updating Request
-46,490,2010-11-29 19:58:54,BSSMAP.Clear Complete
-46,753,2010-11-29 19:58:54,SCCP.Release Complete

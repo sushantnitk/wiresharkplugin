@@ -1,0 +1,7 @@
+User_Message_82
+ 0  2010-01-15 16:39:52.979  81  11078  11039  RANAP  id-RAB-Assignment (0)    0xd56002                       
+ 0  2010-01-15 16:39:52.979  82  11078  11039  RANAP  id-Iu-ReleaseRequest (11)    0xd56002                non-Standard (5)       
+ 0  2010-01-15 16:39:53.001  96  11039  11078  RANAP  id-Iu-Release (1)    0x034028                non-Standard (5)       
+ 0  2010-01-15 16:39:53.039  126  11078  11039  RANAP  id-Iu-Release (1)    0xd56002                       
+ 0  2010-01-15 16:39:53.051  135  11039  11078  SCCP  Released (0x04)  0xd56002  0x034028                End user originated (0x00)       
+ 0  2010-01-15 16:39:53.079  142  11078  11039  SCCP  Release Complete (0x05)  0x034028  0xd56002                       

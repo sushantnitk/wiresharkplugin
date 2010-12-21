@@ -1,0 +1,30 @@
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\ResolveAssemblyReference.cache
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.allMessageFlow.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.dataAnlysis.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.messageParameterList.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.msMessageFlow.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.softerCell.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.Properties.Resources.resources
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.csproj.GenerateResource.Cache
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\bin\Debug\softerCell U3_v0.02.exe
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\bin\Debug\softerCell U3_v0.02.pdb
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.exe
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.pdb
+D:\rncTemp\softerCell U3\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.lossAnlysis.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.exe
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.pdb
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\bin\Debug\softerCell U3_v0.02.exe
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\bin\Debug\softerCell U3_v0.02.pdb
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\ResolveAssemblyReference.cache
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.allMessageFlow.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.dataAnlysis.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.lossAnlysis.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.messageParameterList.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.msMessageFlow.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.softerCell.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell_U3_v0._01.Properties.Resources.resources
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\GenerateResource-ResGen.read.5.tlog
+F:\项目开发LIB\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\GenerateResource-ResGen.write.1.tlog
+G:\wiresharkplugin\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.exe
+G:\wiresharkplugin\项目开发进度2010年2月1日\softerCell U3_v0.02\softerCell U3_v0.02\obj\Debug\softerCell U3_v0.02.pdb

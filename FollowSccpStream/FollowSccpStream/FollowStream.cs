@@ -210,7 +210,7 @@ namespace FollowSccpStream
         public void RecordSccpRelease(LA_update i)
         {
             //删除稀疏矩阵的主键
-            if (i.ip_version_MsgType.IndexOf("SCCP.Release") != -1)
+            if (i.ip_version_MsgType.IndexOf("Release") != -1 )
             {
                 dListConnetion.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_dlr);
                 dListConnetion.Remove(i.m3ua_dpc + i.m3ua_opc + i.sccp_slr);
@@ -218,6 +218,7 @@ namespace FollowSccpStream
                 dListConnetion.Remove(i.m3ua_opc + i.m3ua_dpc + i.sccp_slr);
                 //此处做统计,通过多线程
                 CountFlow(i.PacketNum);
+
                 Console.WriteLine(i.PacketNum);
                 //Task.Factory.StartNew(()=>fs.FlowConsoleWrite
                 //FlowConsoleWrite(i.PacketNum);
@@ -279,7 +280,8 @@ namespace FollowSccpStream
                 hListMessage.Remove(p.Value);
             //Console.WriteLine(mList.Count);
             //开始进行统计
-            Task.Factory.StartNew(() => FlowStatistics.CountFlow(asccp));
+            //Task.Factory.StartNew(() => FlowStatistics.CountFlow(asccp));
+            Task.Factory.StartNew(() => FlowStatistics.CountPcapFlow(asccp));
         }
     }
 }

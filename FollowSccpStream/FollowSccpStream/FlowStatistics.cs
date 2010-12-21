@@ -182,6 +182,24 @@ namespace FollowSccpStream
             }
             StatIndex++;
         }
+
+        public void CountPcapFlow(Dictionary<int?, LA_update> asccp)
+        {
+            foreach (var a in asccp.OrderBy(e => e.Key))
+            {
+                FlowListWriter.Write(StatIndex);
+                FlowListWriter.Write(",");
+                FlowListWriter.Write(a.Value.PacketNum);
+                FlowListWriter.Write(",");
+                FlowListWriter.Write(a.Value.PacketTime);
+                FlowListWriter.Write(",");
+                FlowListWriter.Write(a.Value.ip_version_MsgType);
+                FlowListWriter.Write("\n");
+                FlowListWriter.Flush();
+            }
+            StatIndex++;
+        }
+
         public void WriteFlowConsole(List<int?> a, string opcdpcsccp)
         {
             var messagefirst = a.OrderBy(e => e.Value);

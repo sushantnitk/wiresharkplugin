@@ -9,8 +9,10 @@ namespace FollowSccpStream
 {
     class OutputDataReceive
     {
+        FollowStream flowstream ;
         public OutputDataReceive()
         {
+            flowstream = new FollowStream();
         }
 
         public void ExecuteCmd(string cmd)
@@ -53,15 +55,15 @@ namespace FollowSccpStream
 
             //调用WaitForExit会等待Exited事件完成后再继续往下执行。
             p.WaitForExit();
-            //p.Close();
+            p.Close();
 
-            //Console.WriteLine("exit");
+            Console.WriteLine("exit");
 
         }
-        FollowStream flowstream = new FollowStream();
-        void GetFromPcapFile(string decodedata)
+       
+        void GetFromPcapFile(string nLine)
         {
-            var items = decodedata.Split(';');
+            var items = nLine.Split(new char[] { ' ' });
             LA_update msg = new LA_update();
             msg.PacketNum = Int32.Parse(items[0]);
             msg.PacketTime = DateTime.Parse(items[1]);
@@ -71,15 +73,21 @@ namespace FollowSccpStream
             msg.m3ua_dpc = items[5];
             msg.sccp_slr = items[6];
             msg.sccp_dlr = items[7];
-            msg.ip_version_MsgType = items[8];
-
+            for (int i = 8; i < items.Count(); i++)
+                msg.ip_version_MsgType += items[i];
+            Console.WriteLine(msg.PacketNum);
             flowstream.FollowSccpStream(msg);
         }
         void p_OutputDataReceived(Object sender, DataReceivedEventArgs e)
         {
             //这里是正常的输出
-            Console.WriteLine(e.Data);
-            Task.Factory.StartNew(() => GetFromPcapFile(e.Data));
+            //Console.WriteLine(e.Data);
+            string nLine = e.Data.Replace("[Malformed Packet]", "");
+            nLine = nLine.Trim();
+            //Task.Factory.StartNew(() => GetFromPcapFile(e.Data));
+            //Console.WriteLine(nLine);
+            GetFromPcapFile(nLine);
+            //Console.WriteLine(nLine);
         }
 
         void p_ErrorDataReceived(Object sender, DataReceivedEventArgs e)

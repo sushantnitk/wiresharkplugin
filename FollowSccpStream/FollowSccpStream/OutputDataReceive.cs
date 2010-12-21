@@ -64,7 +64,7 @@ namespace FollowSccpStream
         void GetFromPcapFile(string nLine)
         {
             var items = nLine.Split(new char[] { ' ' });
-            LA_update msg = new LA_update();
+            AMessageDetail msg = new AMessageDetail();
             msg.PacketNum = Int32.Parse(items[0]);
             msg.PacketTime = DateTime.Parse(items[1]);
             msg.imsi = items[2];
@@ -74,7 +74,7 @@ namespace FollowSccpStream
             msg.sccp_slr = items[6];
             msg.sccp_dlr = items[7];
             for (int i = 8; i < items.Count(); i++)
-                msg.ip_version_MsgType += items[i];
+                msg.message_type += items[i];
             Console.WriteLine(msg.PacketNum);
             flowstream.FollowSccpStream(msg);
         }

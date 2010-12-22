@@ -1,0 +1,36 @@
+<Root  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\wiresharkplugin\wsDatabase\new2.xsd">
+<Customers>
+	<Customer CustomerID="Abc">
+		<CompanyName>Abc</CompanyName>
+		<ContactName>Abc</ContactName>
+		<ContactTitle>Abc</ContactTitle>
+		<Phone>Abc</Phone>
+		<Fax>Abc</Fax>
+		<FullAddress CustomerID="Abc">
+			<Address>Abc</Address>
+			<City>Abc</City>
+			<Region>Abc</Region>
+			<PostalCode>Abc</PostalCode>
+			<Country>Abc</Country>
+		</FullAddress>
+	</Customer>
+</Customers>
+<Orders>
+	<Order>
+		<CustomerID>Abc</CustomerID>
+		<EmployeeID>Abc</EmployeeID>
+		<OrderDate></OrderDate>
+		<RequiredDate></RequiredDate>
+		<ShipInfo ShippedDate="">
+			<ShipVia>2</ShipVia>
+			<Freight>1.1</Freight>
+			<ShipName>Abc</ShipName>
+			<ShipAddress>Abc</ShipAddress>
+			<ShipCity>Abc</ShipCity>
+			<ShipRegion>Abc</ShipRegion>
+			<ShipPostalCode>Abc</ShipPostalCode>
+			<ShipCountry>Abc</ShipCountry>
+		</ShipInfo>
+	</Order>
+</Orders>
+</Root>

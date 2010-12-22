@@ -1,0 +1,14 @@
+Microsoft(R) Xml 架构/数据类型支持实用工具
+[Microsoft (R) .NET Framework, Version 4.0.30319.1]
+Copyright (C) Microsoft Corporation. All rights reserved.
+正在写入文件“D:\wsModel.cs”。
+
+
+
+
+
+
+
+
+xsd.exe wsModel.xsd /classes /l:cs /n:wsModel 
+

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="ExpertDefines">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="FlowDesigners">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="FlowDisigner">
+								<xsd:complexType>
+									<xsd:attribute name="Expert" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="StreamNodes">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Sequence">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Message">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="Protocol"/>
+																<xsd:element name="MessageType"/>
+																<xsd:element name="Condition"/>
+																<xsd:element name="OutputName"/>
+																<xsd:element name="mNumber"/>
+																<xsd:element name="Level"/>
+																<xsd:element name="Status"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OutputValues">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Sequence">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Field">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="mNumber"/>
+																<xsd:element name="FieldNum"/>
+																<xsd:element name="Parameter"/>
+																<xsd:element name="Name"/>
+																<xsd:element name="Type"/>
+																<xsd:element name="Len"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+

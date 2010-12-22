@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Database Name="mc_sz04a" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
-  <!--通过member生成数据库和表，通过data生成row，每读入一行，生成txt逗号分隔的字符串，最后一次插入数据库-->
+  <!-- 通过member生成数据库和表，通过data生成row，每读入一行，生成txt逗号分隔的字符串，最后一次插入数据库-->
   <Table Name="Paging" Member="paging_table">
     <Message Name="BSSMAP.Paging" Node="Main" Stop="No">
       <Column Name="FileNum" Member="Paging_FileNum" Data="" />

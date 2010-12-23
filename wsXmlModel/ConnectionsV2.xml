@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Connection>
+  <Connection>
+    <ID>a227fb82-8e77-4297-a037-c08cd4b366e6</ID>
+    <Persist>true</Persist>
+    <Server>.\SQLEXPRESS</Server>
+  </Connection>
+  <Connection>
+    <ID>f5e4d7f7-e259-49f2-9465-488692f665df</ID>
+    <Persist>true</Persist>
+    <Server>192.168.1.4</Server>
+    <SqlSecurity>true</SqlSecurity>
+    <UserName>weihp</UserName>
+    <Password>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAW49tbNUankq3uYVEnsYXbgAAAAACAAAAAAADZgAAqAAAABAAAAA3oKdGEY6cz/tpvlYEUW4pAAAAAASAAACgAAAAEAAAAPVds8v/R5ipkGCzF/I5zaMQAAAA9/xWcczXRA1PqAtzPKsdjBQAAADanJoOKSXC40EvmvVBwd1zAfdSWg==</Password>
+  </Connection>
+</Connection>

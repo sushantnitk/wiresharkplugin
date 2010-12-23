@@ -1,0 +1,88 @@
+# Recent settings file for Wireshark 1.4.0rc2.
+#
+# This file is regenerated each time Wireshark is quit.
+# So be careful, if you want to make manual changes here.
+
+######## Recent capture files (latest last), cannot be altered through command line ########
+
+recent.capture_file: G:\wiresharkplugin\wsDatabase\alink_trace_10.125.41.202-10297857-10.125.38.154-11929630_20101203235349.pcap
+recent.capture_file: G:\wiresharkplugin\wsDatabase\alink_trace_10.125.41.202-10683767-10.125.38.154-14483644_20101203235348.pcap
+recent.capture_file: F:\tshark lua\alink_trace_10.125.41.202-13048961-10.125.38.26-415055_20101204000612.pcap
+recent.capture_file: F:\tshark lua\mmm.pcap
+recent.capture_file: D:\My Documents\aa.pcap
+recent.capture_file: F:\tshark lua\mm.pcap
+recent.capture_file: D:\My Documents\p2p.pcap
+recent.capture_file: I:\Mc File\mc_merge_split_filter_0000.pcap
+recent.capture_file: D:\ScapyProject\bbb.pcap
+recent.capture_file: D:\ScapyProject\mmm.pcap
+
+######## Recent capture filters (latest last), cannot be altered through command line ########
+
+
+######## Recent display filters (latest last), cannot be altered through command line ########
+
+recent.display_filter: gsm_a.imsi
+recent.display_filter: gsm_a.tmsi 
+recent.display_filter: gsm_a.imsi==0 ||  gsm_a.tmsi==0 ||  sccp.slr==0xcf1cfd || sccp.dlr==0xcf1cfd ||  sccp.slr==0 || sccp.dlr==0
+recent.display_filter: gsm_a.imsi==0 ||  gsm_a.tmsi==0 ||  sccp.slr==0x5001fd || sccp.dlr==0x5001fd ||  sccp.slr==0 || sccp.dlr==0
+recent.display_filter: frame[124:5] == 64:f0:00:27:a0
+recent.display_filter: gsm_a.imsi==0 ||  gsm_a.tmsi==0x31b353d4 ||  sccp.slr==0xa1047f || sccp.dlr==0xa1047f ||  sccp.slr==0x78277e || sccp.dlr==0x78277e
+recent.display_filter: gsm_a.imsi==0 ||  gsm_a.tmsi==0 ||  sccp.slr==0xa1047f || sccp.dlr==0xa1047f ||  sccp.slr==0 || sccp.dlr==0
+recent.display_filter: frame.number==4024
+recent.display_filter: frame.number==4022
+recent.display_filter: frame.number==4023
+
+######## Recent remote hosts, cannot be altered through command line ########
+
+
+# Main window geometry.
+# Decimal numbers.
+gui.geometry_main_x: 20
+gui.geometry_main_y: 20
+gui.geometry_main_width: 1366
+gui.geometry_main_height: 712
+
+# Main window maximized.
+# TRUE or FALSE (case-insensitive).
+gui.geometry_main_maximized: TRUE
+
+# Statusbar left pane size.
+# Decimal number.
+gui.geometry_status_pane: 447
+
+# Statusbar middle pane size.
+# Decimal number.
+gui.geometry_status_pane_right: 669
+
+# Last used Configuration Profile.
+gui.last_used_profile: Default
+
+# WLAN statistics upper pane size.
+# Decimal number.
+gui.geometry_status_wlan_stats_pane: 200
+
+# Warn if running with elevated permissions (e.g. as root).
+# TRUE or FALSE (case-insensitive).
+privs.warn_if_elevated: TRUE
+
+# Warn if npf.sys isn't loaded on Windows >= 6.0.
+# TRUE or FALSE (case-insensitive).
+privs.warn_if_no_npf: TRUE
+
+# Geometry and maximized state of LTE MAC Statistics window.
+# Decimal integers.
+gui.geom.LTE MAC Statistics.x: 110
+gui.geom.LTE MAC Statistics.y: 145
+gui.geom.LTE MAC Statistics.width: 750
+gui.geom.LTE MAC Statistics.height: 300
+# TRUE or FALSE (case-insensitive).
+gui.geom.LTE MAC Statistics.maximized: FALSE
+
+# Geometry and maximized state of Collectd Stats Tree window.
+# Decimal integers.
+gui.geom.Collectd Stats Tree.x: 88
+gui.geom.Collectd Stats Tree.y: 116
+gui.geom.Collectd Stats Tree.width: 400
+gui.geom.Collectd Stats Tree.height: 400
+# TRUE or FALSE (case-insensitive).
+gui.geom.Collectd Stats Tree.maximized: FALSE

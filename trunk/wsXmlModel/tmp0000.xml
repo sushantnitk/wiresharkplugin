@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by SHOCK (SHOCK) -->
-<Connection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\wiresharkplugin\wsXmlModel\ConnectionsV2.xsd">
+<Connection>
 	<Connection>
 		<ID>a227fb82-8e77-4297-a037-c08cd4b366e6</ID>
 		<Persist>true</Persist>

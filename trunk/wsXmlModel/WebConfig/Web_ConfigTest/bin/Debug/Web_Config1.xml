@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings>
+	<add name="MSSQL" connectionString="Data Source=localhost;Initial Catalog=test;User ID=sa;password=sa;" providerName="System.Data.SqlClient" />
+	<add name="Oracle" connectionString="Data Source=TEST;User ID=sa;Password=sa;" providerName="System.Data.OracleClient" />
+</connectionStrings>

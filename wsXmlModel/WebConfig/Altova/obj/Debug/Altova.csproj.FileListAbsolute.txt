@@ -1,0 +1,5 @@
+G:\wiresharkplugin\wsXmlModel\WebConfig\Altova\bin\Debug\Altova.dll
+G:\wiresharkplugin\wsXmlModel\WebConfig\Altova\bin\Debug\Altova.pdb
+G:\wiresharkplugin\wsXmlModel\WebConfig\Altova\obj\Debug\ResolveAssemblyReference.cache
+G:\wiresharkplugin\wsXmlModel\WebConfig\Altova\obj\Debug\Altova.dll
+G:\wiresharkplugin\wsXmlModel\WebConfig\Altova\obj\Debug\Altova.pdb

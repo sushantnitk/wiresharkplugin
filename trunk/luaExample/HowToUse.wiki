@@ -1,0 +1,18 @@
+#summary Instructions on how to use dischain
+#labels Featured
+
+= Install =
+ # If the directory doesn't already exist, create %WIRESHARK_HOME%\lua.
+ # Copy dischain.lua to %WIRESHARK_HOME%\lua.
+ # Copy dischain_test1.lua and dischain_test2.lua to %WIRESHARK_HOME%\plugins\{ver}.
+ # Restart Wireshark if currently running.
+
+= Configure =
+ # Go to dischain's preferences (Edit > Preferences > Protocols > DISCHAIN), and verify that the "Prioritized dissector" list contains "ptest1,ptest2".
+ # Go to preferences for the two test protocols (Edit > Preferences > Protocols > PTEST1|PTEST2), and verify the port monitored is 30000. They should be the same to demonstrate dissector chaining.
+
+= Run =
+ # Begin capture on a network interface.
+ # Generate UDP packets on port 30000 of that network interface. A subset of those packets should begin with 5 (0x05) and another subset should begin with 30 (0x1e). The remaining contents of the packet are irrelevant.
+ # Verify that PTEST1 appears in the "Protocol" column for all packets that begin with 30.
+ # Verify that PTEST2 appears in the "Protocol" column for all packets that begin with 5.

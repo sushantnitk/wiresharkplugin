@@ -1,0 +1,3 @@
+- Add code to merge pcap files together if offset is change to search a longer amount of time.
+- Fix "Earliest Packet Trace" Time/Date to check previous directories, not just current day as logpackets script creates new directory for each day.
+- Update Documentation for OSX,Solaris and Linux

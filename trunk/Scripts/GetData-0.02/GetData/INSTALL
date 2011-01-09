@@ -1,0 +1,24 @@
+
+
+When using on Windows Console, certain versions of ActivePerl had a buggy Tk Module that pegged the CPU...upgrading to the latest version will (Build 817) should fix this.
+
+GetData.pl should be placed in its own subdirectory on SIM Console PC.
+Inside this subdirectory, a "GetData" subdirectory should be created with the Config.PM file inside it where you can store config variables. This will make it easier to upgrade to newer versions, without having to replace your config.
+
+Instructions for adding to Arcsight are as follows:
+
+Inside the Arcsight Console:(Windows Example)
+Click on Tools,Configure,New
+Name : Query Full Session ( your choice )
+Program : c:\perl\bin\perl.exe -w c:\GetData\getdata-dist.pl
+Working Directory c:\GetData
+Icon: tools_custom.gif (your choice)
+Program Parameters: srcIP:$event[attackerAddress]  srcPORT:$event[attackerPort]   destIP:$event[targetAddress]  destPORT:$event[targetPort]  endTime:"$event[endTime]"
+
+The Time Parsing Code in the script only Accomodates "DD Mon YYYY HH:MM:SS TZ".
+If you are not able to change this, let me know which Time/Data Image you use and I will add the option for it.
+
+
+
+
+

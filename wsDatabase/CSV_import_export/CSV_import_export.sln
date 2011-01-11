@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV_import_export", "CSV_import_export\CSV_import_export.csproj", "{BEFB2716-8B22-4857-96A0-B9BEFACE6ECA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEFB2716-8B22-4857-96A0-B9BEFACE6ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEFB2716-8B22-4857-96A0-B9BEFACE6ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEFB2716-8B22-4857-96A0-B9BEFACE6ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEFB2716-8B22-4857-96A0-B9BEFACE6ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

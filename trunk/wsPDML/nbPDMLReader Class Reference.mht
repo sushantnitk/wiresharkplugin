@@ -1,0 +1,640 @@
+Date: Thu, 31 Mar 2011 00:18:18 +0800
+Message-ID: <00010f14$f780d5a0$0dcfed36$EverNote>
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_NextPart_0001_0F14_155C4676.FB6E5940"
+X-Mailer: Evernote® v4.01.0.3413
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_0001_0F14_155C4676.FB6E5940
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"Tahoma" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+
+<div>=0A<div><h1>nbPDMLReader Class Reference<br><small>[<a =
+href=3D"http://www.nbee.org/exports/nbee/group__NetBeePxMLReader.htm">Net=
+Bee PSML and PDML Readers</a>]</small></h1>=0AThis class implements a =
+set of methods to return packets formatted according to the PDML =
+language to the user. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#_details">=
+More...</a><p><code>#include &lt;nbee_pxmlreader.h&gt;</code></p><p><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader-members.htm">L=
+ist of all members.</a></p><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0"><tbody><tr><td></td></tr><tr><td =
+colspan=3D"2"><br><h2>Public Member Functions</h2></td></tr><tr><td =
+align=3D"right" nowrap=3D"nowrap" valign=3D"top">virtual =
+int=C2=A0</td><td valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#d9d1f22872=
+1603b7bdb12827c9d42de8">GetCurrentPacket</a> (<a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> **PDMLPacket)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns =
+a pointer to a set of binary structures that can be used to operate on =
+the current PDML packet without the need of XML parsers. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#d9d1f22872=
+1603b7bdb12827c9d42de8"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#e06ff62403=
+3e54d51ff0c712e5e9e5eb">GetCurrentPacketXML</a> (char =
+**PacketPtr)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns a pointer to =
+a buffer that contains the XML dump of the current PDML packet. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#e06ff62403=
+3e54d51ff0c712e5e9e5eb"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#27f8e0bdba=
+02276017e113b3ea8aadda">GetPacket</a> (unsigned long PacketNumber, <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> **PDMLPacket)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns =
+a pointer to a set of binary structures that can be used to operate on a =
+given PDML packet without the need of XML parsers. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#27f8e0bdba=
+02276017e113b3ea8aadda"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#87b7061a03=
+f911e5f2165aff8c0ea022">GetPacketXML</a> (unsigned long PacketNumber, =
+char **PacketPtr)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns a =
+pointer to a buffer that contains the XML dump of a given PDML packet. =
+<a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#87b7061a03=
+f911e5f2165aff8c0ea022"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#0a23cd3194=
+d45174680a0e6da842540e">GetCurrentPacketHexDump</a> (bool IsBinaryDump, =
+char **AsciiBuffer)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns a =
+buffer containing the hexadecimal dump of the current packet. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#0a23cd3194=
+d45174680a0e6da842540e"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#45f8109825=
+9b83883de72413704343ae">GetPacketHexDump</a> (unsigned long =
+PacketNumber, bool IsBinaryDump, char =
+**AsciiBuffer)=3D0</td></tr><tr><td>=C2=A0</td><td>It returns a buffer =
+containing the ascii hexadecimal dump related to a given packet. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#45f8109825=
+9b83883de72413704343ae"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#11e91c2a85=
+8e5ed76c8539ceffed23d5">RemovePacket</a> (unsigned long =
+PacketNumber)=3D0</td></tr><tr><td>=C2=A0</td><td>It deletes an element =
+from the list of packets managed by the current instance of the class. =
+<a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#11e91c2a85=
+8e5ed76c8539ceffed23d5"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#9950cd4369=
+1f14a0138384c8a2b0609e">SaveDocumentAs</a> (const char =
+*Filename)=3D0</td></tr><tr><td>=C2=A0</td><td>It dumps the current PDML =
+document on file. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#9950cd4369=
+1f14a0138384c8a2b0609e"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#847360f618=
+82e3f9b8fe1fc000a431b8">GetPDMLField</a> (char *ProtoName, char =
+*FieldName, struct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *FirstField, struct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> **ExtractedField)=3D0</td></tr><tr><td>=C2=A0</td><td>This =
+function returns a pointer to a PDML field, which can be used to get =
+access to field values. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#847360f618=
+82e3f9b8fe1fc000a431b8"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual int=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#ff166411e4=
+fc283b425b9560fb3d8174">GetPDMLField</a> (unsigned long PacketNumber, =
+char *ProtoName, char *FieldName, <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *FirstField, <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> **ExtractedField)=3D0</td></tr><tr><td>=C2=A0</td><td>This =
+function returns a pointer to a PDML field, which can be used to get =
+access to field values. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#ff166411e4=
+fc283b425b9560fb3d8174"></a><br></td></tr><tr><td align=3D"right" =
+nowrap=3D"nowrap" valign=3D"top">virtual char *=C2=A0</td><td =
+valign=3D"bottom"><a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError</a> =
+()=3D0</td></tr><tr><td>=C2=A0</td><td>Return a string keeping the last =
+error message that occurred within the current instance of the class. <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1"></a><br></td></tr></tbody></table><hr><a =
+name=3D"_details"></a><h2>Detailed Description</h2>=0AThis class =
+implements a set of methods to return packets formatted according to the =
+PDML language to the user.=0A<p>This class can be used to parse PDML =
+files and return their content to the caller, in a format which is more =
+friendly than using XML parsers.</p><dl =
+compact=3D"compact"><dt><b>Note:</b></dt><dd>Please note that this class =
+cannot be instantiated directly: you have to use the <a =
+href=3D"http://www.nbee.org/exports/nbee/group__NetBeePxMLReader.htm#g54e=
+d57ce3351643f4bf7844479843183">nbAllocatePDMLReader()</a> function to =
+get a pointer to this class. For cleanup, the programmer must use the <a =
+href=3D"http://www.nbee.org/exports/nbee/group__NetBeePxMLReader.htm#gb59=
+27a93d4f1bb0ed1db40319ed25b27">nbDeallocatePDMLReader()</a> =
+function.</dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><p><a =
+href=3D"http://www.nbee.org/exports/nbee/packetdecoder_8cpp-example.htm#_=
+a17">packetdecoder.cpp</a>, <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlfieldextractor_8cpp-example.=
+htm#_a1">pdmlfieldextractor.cpp</a>, and <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlreader_8cpp-example.htm#_a3"=
+>pdmlreader.cpp</a>.</p></dd></dl><hr><h2>Member Function =
+Documentation</h2><a =
+name=3D"d9d1f228721603b7bdb12827c9d42de8"></a><div><table><tbody><tr><td>=
+virtual int nbPDMLReader::GetCurrentPacket</td><td>(</td><td><a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> =
+**=C2=A0</td><td><em>PDMLPacket</em></td><td>=C2=A0)=C2=A0</td><td =
+width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+pointer to a set of binary structures that can be used to operate on the =
+current PDML packet without the need of XML parsers.</p><p>This function =
+is used only if the PDMLReader source is a NetBeePacketDecoder; in this =
+case, this function returns a pointer to the last decoded =
+packet.</p><p>The returned data will be a <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> and a set of <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLProto.htm">_nbPDML=
+Proto</a> and _nbPDMLFields linked together. The number of protocols =
+contained in the packet are returned as well.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PDMLPacket,:</em>=C2=A0</td><td>pointer to a =
+'_nbPDMLPacket *' in which PDMLReader will put the returned =
+data.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine, nbFAILURE if some error occurred. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>The returned structures =
+are valid until the user calls a new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlreader_8cpp-example.htm#a14"=
+>pdmlreader.cpp</a>.</dd></dl></div><p><a =
+name=3D"e06ff624033e54d51ff0c712e5e9e5eb"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::GetCurrentPacketXML</td><td>(</td><td>char =
+**=C2=A0</td><td><em>PacketPtr</em></td><td>=C2=A0)=C2=A0</td><td =
+width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+pointer to a buffer that contains the XML dump of the current PDML =
+packet.</p><p>This function is used only if the PDMLReader source is a =
+NetBeePacketDecoder; in this case, this function returns a pointer to =
+the last decoded packet.</p><p>The returned data will be an ascii buffer =
+that has to be further parsed according to the PDML definition. The =
+resulting document will start with the &lt;packet&gt; tag, and so =
+on.</p><dl compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketPtr,:</em>=C2=A0</td><td>pointer to a buffer in =
+which PDMLReader will put the returned data. This buffer will always be =
+NULL terminated.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine, nbFAILURE if some error occurred. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>The returned structures =
+are valid until the user calls a new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</dd></dl></div><p><a =
+name=3D"27f8e0bdba02276017e113b3ea8aadda"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::GetPacket</td><td>(</td><td>unsigned =
+long=C2=A0</td><td><em>PacketNumber</em>,</td></tr><tr><td></td><td></td>=
+<td><a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> =
+**=C2=A0</td><td><em>PDMLPacket</em></td><td>=C2=A0</td></tr><tr><td></td=
+><td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+pointer to a set of binary structures that can be used to operate on a =
+given PDML packet without the need of XML parsers.</p><p>The returned =
+data will be a <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLPacket.htm">_nbPDM=
+LPacket</a> and a set of <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLProto.htm">_nbPDML=
+Proto</a> and _nbPDMLFields linked together. The number of protocols =
+contained in the packet are returned as well.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketNumber,:</em>=C2=A0</td><td>number of the =
+packet (starting from '1') that we want to get.</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PDMLPacket,:</em>=C2=A0</td><td>pointer to a =
+'PDMLPacket *' in which PDMLReader will put the returned PDML =
+data.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>A positive number =
+containing the number of protocols contained in the packet, nbFAILURE if =
+some error occurred, nbWARNING if the user asked for a packet that is =
+out of range. In case of error, the error message can be retrieved by =
+the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>This function returns an =
+error if the PDMLReader source is a NetBeePacketDecoder, but it has been =
+configured not to keep all packets. In this case, the PDMLReader cannot =
+have access to previously decoded packet that have already been =
+descarded.=0A<p>The returned structures are valid until the user calls a =
+new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</p></dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlreader_8cpp-example.htm#a17"=
+>pdmlreader.cpp</a>.</dd></dl></div><p><a =
+name=3D"87b7061a03f911e5f2165aff8c0ea022"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::GetPacketXML</td><td>(</td><td>unsigned =
+long=C2=A0</td><td><em>PacketNumber</em>,</td></tr><tr><td></td><td></td>=
+<td>char =
+**=C2=A0</td><td><em>PacketPtr</em></td><td>=C2=A0</td></tr><tr><td></td>=
+<td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+pointer to a buffer that contains the XML dump of a given PDML =
+packet.</p><p>The returned data will be an ascii buffer that has to be =
+further parsed according to the PDML definition. The resulting document =
+will start with the &lt;packet&gt; tag, and so on.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketNumber,:</em>=C2=A0</td><td>number of the =
+packet (starting from '1') that we want to get.</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketPtr,:</em>=C2=A0</td><td>pointer to a buffer in =
+which PDMLReader will put the returned data. This buffer will always be =
+NULL terminated.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>A positive number that =
+keeps the number of bytes in the buffer if everything is fine, nbFAILURE =
+if some error occurred, nbWARNING in case the requested packet is out of =
+range. In case of error, the error message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>The returned structures =
+are valid until the user calls a new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</dd></dl></div><p><a =
+name=3D"0a23cd3194d45174680a0e6da842540e"></a></p><div><table><tbody><tr>=
+<td>virtual int =
+nbPDMLReader::GetCurrentPacketHexDump</td><td>(</td><td>bool=C2=A0</td><t=
+d><em>IsBinaryDump</em>,</td></tr><tr><td></td><td></td><td>char =
+**=C2=A0</td><td><em>AsciiBuffer</em></td><td>=C2=A0</td></tr><tr><td></t=
+d><td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+buffer containing the hexadecimal dump of the current packet.</p><p>This =
+method parses the PDML fragment and returns the hexadecimal dump of the =
+packet (in the form 'AABBCCDD...' or 'xAAxBBxCCxDD...') to the =
+caller.</p><dl compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>IsBinaryDump,:</em>=C2=A0</td><td>true if the =
+returned dump will be formatted in binary ('xAAxBBxCCxDD...'); false if =
+if has to be returned in ascii ('AABBCCDD...').</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>AsciiBuffer,:</em>=C2=A0</td><td>a char pointer that =
+is filled by the current method. When the function returns, this =
+variable will contain a pointer to the buffer that keeps the hex dump of =
+the packet.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>The length (in bytes) of =
+the hex dump of the packet, or nbFAILURE if some errors occurred. The =
+hex dump will be returned through the 'AsciiBuffer' parameter. In case =
+of error, the error message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>The returned data is =
+valid until the user calls a new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</dd></dl></div><p><a =
+name=3D"45f81098259b83883de72413704343ae"></a></p><div><table><tbody><tr>=
+<td>virtual int =
+nbPDMLReader::GetPacketHexDump</td><td>(</td><td>unsigned =
+long=C2=A0</td><td><em>PacketNumber</em>,</td></tr><tr><td></td><td></td>=
+<td>bool=C2=A0</td><td><em>IsBinaryDump</em>,</td></tr><tr><td></td><td><=
+/td><td>char =
+**=C2=A0</td><td><em>AsciiBuffer</em></td><td>=C2=A0</td></tr><tr><td></t=
+d><td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It returns a =
+buffer containing the ascii hexadecimal dump related to a given =
+packet.</p><p>This method parses the PDML fragment and returns the =
+hexadecimal dump of the packet (in the form 'AABBCCDD...' or =
+'xAAxBBxCCxDD...') to the caller.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketNumber,:</em>=C2=A0</td><td>number of the =
+packet (starting from '1') that we want get the hex =
+dump.</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>IsBinaryDump,:</em>=C2=A0</td><td>true if the =
+returned dump will be formatted in binay ('xAAxBBxCCxDD...'); false if =
+if has to be returned in ascii ('AABBCCDD...').</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>AsciiBuffer,:</em>=C2=A0</td><td>a char pointer that =
+is filled by the current method. When the function returns, this =
+variable will contain a pointer to the buffer that keeps the hex dump of =
+the packet.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>The length (in bytes) of =
+the hex dump of the packet, or nbFAILURE if some errors occurred. The =
+hex dump will be returned through the 'AsciiBuffer' parameter. In case =
+of error, the error message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Warning:</b></dt><dd>The returned data is =
+valid until the user calls a new method of the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm">nbPDMLRea=
+der</a> class.</dd></dl></div><p><a =
+name=3D"11e91c2a858e5ed76c8539ceffed23d5"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::RemovePacket</td><td>(</td><td>unsigned =
+long=C2=A0</td><td><em>PacketNumber</em></td><td>=C2=A0)=C2=A0</td><td =
+width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It deletes an =
+element from the list of packets managed by the current instance of the =
+class.</p><p>This method is provided in order to allow delections of =
+some of the packets from within the PDML file.</p><p>When the function =
+returns, the new index of the packets will take into account of the =
+deleted one. In other words, if the index was from 0 to N, it is now is =
+from 0 to (N-1).</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketNumber,:</em>=C2=A0</td><td>the ordinal number =
+of the packet (packets start at '0') that has to be =
+deleted.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine, nbFAILURE if some error occurred. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl></div><p><a =
+name=3D"9950cd43691f14a0138384c8a2b0609e"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::SaveDocumentAs</td><td>(</td><td>const =
+char *=C2=A0</td><td><em>Filename</em></td><td>=C2=A0)=C2=A0</td><td =
+width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>It dumps the =
+current PDML document on file.</p><p>This method skips all the elements =
+that have been previously deleted.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>Filename,:</em>=C2=A0</td><td>name of the file that =
+will be used for the dump.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine, nbFAILURE' if some error occurred. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><a =
+href=3D"http://www.nbee.org/exports/nbee/packetdecoder_8cpp-example.htm#a=
+19">packetdecoder.cpp</a>, <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlfieldextractor_8cpp-example.=
+htm#a16">pdmlfieldextractor.cpp</a>, and <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlreader_8cpp-example.htm#a16"=
+>pdmlreader.cpp</a>.</dd></dl></div><p><a =
+name=3D"847360f61882e3f9b8fe1fc000a431b8"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::GetPDMLField</td><td>(</td><td>char =
+*=C2=A0</td><td><em>ProtoName</em>,</td></tr><tr><td></td><td></td><td>ch=
+ar =
+*=C2=A0</td><td><em>FieldName</em>,</td></tr><tr><td></td><td></td><td>st=
+ruct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> =
+*=C2=A0</td><td><em>FirstField</em>,</td></tr><tr><td></td><td></td><td>s=
+truct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> =
+**=C2=A0</td><td><em>ExtractedField</em></td><td>=C2=A0</td></tr><tr><td>=
+</td><td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>This function =
+returns a pointer to a PDML field, which can be used to get access to =
+field values.</p><p>This function is able to scan a given decoded packet =
+and to locate a field named 'FieldName' within a given protocol. Then, =
+it returns a pointer to that field.</p><p>This function can be used to =
+access to the content of a specific field (e.g. the field value) in =
+order to make some further processing.</p><p>Please note that the packet =
+must already been decoded in order to be able to call this function. In =
+other words, you should:</p><ul><li>submit a packet to the decoding =
+engine (through the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPacketDecoder.htm#2e9a04e=
+5d0184e873ef51e82ab89438e">nbPacketDecoder::DecodePacket()</a> =
+)</li><li>call this function in order to get some of the fields within =
+this packet.</li></ul><p>This function can be called several times =
+within the same packet. This can be useful in case the decoded packet =
+contains several fields that have the same name. In this case, this =
+function returns the first encountered field the first time is called. =
+Then, the function can be called again in order to return the following =
+items. However, in this case the first parameter ('FirstField') must be =
+set to the previously located field in order to tell the analysis engine =
+that it should scan the packets starting from the given field =
+onward.</p><dl compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>FieldName,:</em>=C2=A0</td><td>string that contains =
+the name of the field (in the PDML file) we are looking =
+for.</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>ProtoName,:</em>=C2=A0</td><td>string that contains =
+the name of the protocol (in the PDML file) in which the field we are =
+looking for is contained. This can be NULL in case we specify the field =
+to start with (i.e. if the 'FirstField' parameter is =
+non-NULL).</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>FirstField,:</em>=C2=A0</td><td>in case the field =
+named 'FieldName' occurs more than one time in the current protocol, =
+this parameter tells this function that it must start searching from =
+this field onward. Basically, the value of this field is the same value =
+returned by this function in the previous round.</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>ExtractedField,:</em>=C2=A0</td><td>this variable =
+keeps the return value of the function. This variable is a pointer to a =
+<a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a>, passed by reference (i.e. &amp;(<a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *) ). When the function return, this variable will contain a =
+pointer to the field we are looking =
+for.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine and the field has been located, nbFAILURE if some error =
+occurred, nbWARNING if there are no more occurencies of the field within =
+the current protocol. The latest return code is used only when the =
+'FirstField' variable is a valid pointer. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Note:</b></dt><dd>Since variable 'FirstField' =
+is used only at the beginning of the function, while 'ExtractedField' =
+keeps the returned value, these parameters can make use of a single =
+variable. In other words, this function can be called using the =
+following fragment of code:=0A<pre>=0A              struct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *PDMLField=3D NULL;=0A                =
+GetPDMLField(&quot;proto&quot;, &quot;myfield&quot;, PDMLField, =
+&amp;PDMLField);=0A                =0A</pre></dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlfieldextractor_8cpp-example.=
+htm#a13">pdmlfieldextractor.cpp</a>.</dd></dl></div><p><a =
+name=3D"ff166411e4fc283b425b9560fb3d8174"></a></p><div><table><tbody><tr>=
+<td>virtual int nbPDMLReader::GetPDMLField</td><td>(</td><td>unsigned =
+long=C2=A0</td><td><em>PacketNumber</em>,</td></tr><tr><td></td><td></td>=
+<td>char =
+*=C2=A0</td><td><em>ProtoName</em>,</td></tr><tr><td></td><td></td><td>ch=
+ar =
+*=C2=A0</td><td><em>FieldName</em>,</td></tr><tr><td></td><td></td><td><a=
+ =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> =
+*=C2=A0</td><td><em>FirstField</em>,</td></tr><tr><td></td><td></td><td><=
+a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> =
+**=C2=A0</td><td><em>ExtractedField</em></td><td>=C2=A0</td></tr><tr><td>=
+</td><td>)</td><td></td><td></td><td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>This function =
+returns a pointer to a PDML field, which can be used to get access to =
+field values.</p><p>This function is able to scan a given decoded packet =
+and to locate a field named 'FieldName' within a given protocol. Then, =
+it returns a pointer to that field.</p><p>This function can be used to =
+access to the content of a specific field (e.g. the field value) in =
+order to make some further processing.</p><p>This function overloads the =
+other <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#847360f618=
+82e3f9b8fe1fc000a431b8">GetPDMLField()</a> method and it is useful when =
+you have a set of decoded packets (e.g. a PDML file on disk) and you =
+want to access to some information contained within these =
+packets.</p><p>In this case, you do not need to call the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPacketDecoder.htm#2e9a04e=
+5d0184e873ef51e82ab89438e">nbPacketDecoder::DecodePacket()</a> before =
+being able to access to PDML packets; you need just to make sure that =
+the packet 'PacketNumber' exists in PDML format.</p><p>This function can =
+be called several times within the same packet. This can be useful in =
+case the decoded packet contains several fields that have the same name. =
+In this case, this function returns the first encountered field the =
+first time is called. Then, the function can be called again in order to =
+return the following items. However, in this case the first parameter =
+('FirstField') must be set to the previously located field in order to =
+tell the analysis engine that it should scan the packets starting from =
+the given field onward.</p><dl =
+compact=3D"compact"><dt><b>Parameters:</b></dt><dd><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"2"><tbody><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>PacketNumber,:</em>=C2=A0</td><td>the ordinal number =
+of the packet (packets start at '0') that is being =
+selected.</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>FieldName,:</em>=C2=A0</td><td>string that contains =
+the name of the field (in the PDML file) we are looking =
+for.</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>ProtoName,:</em>=C2=A0</td><td>string that contains =
+the name of the protocol (in the PDML file) in which the field we are =
+looking for is contained. This can be NULL in case we specify the field =
+to start with (i.e. if the 'FirstField' parameter is =
+non-NULL).</td></tr><tr><td valign=3D"top"></td><td =
+valign=3D"top"><em>FirstField,:</em>=C2=A0</td><td>in case the field =
+named 'FieldName' occurs more than one time in the current protocol, =
+this parameter tells this function that it must start searching from =
+this field onward. Basically, the value of this field is the same value =
+returned by this function in the previous round.</td></tr><tr><td =
+valign=3D"top"></td><td =
+valign=3D"top"><em>ExtractedField,:</em>=C2=A0</td><td>this variable =
+keeps the return value of the function. This variable is a pointer to a =
+<a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a>, passed by reference (i.e. &amp;(<a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *) ). When the function return, this variable will contain a =
+pointer to the field we are looking =
+for.</td></tr></tbody></table></dd></dl><dl =
+compact=3D"compact"><dt><b>Returns:</b></dt><dd>nbSUCCESS if everything =
+is fine and the field has been located, nbFAILURE if some error =
+occurred, nbWARNING if there are no more occurencies of the field within =
+the current protocol. The latest return code is used only when the =
+'FirstField' variable is a valid pointer. In case of error, the error =
+message can be retrieved by the <a =
+href=3D"http://www.nbee.org/exports/nbee/classnbPDMLReader.htm#a3d0872f12=
+8b9368bd3f834b5b1324c1">GetLastError()</a> method.</dd></dl><dl =
+compact=3D"compact"><dt><b>Note:</b></dt><dd>Since variable 'FirstField' =
+is used only at the beginning of the function, while 'ExtractedField' =
+keeps the returned value, these parameters can make use of a single =
+variable. In other words, this function can be called using the =
+following fragment of code:=0A<pre>=0A              struct <a =
+href=3D"http://www.nbee.org/exports/nbee/struct__nbPDMLField.htm">_nbPDML=
+Field</a> *PDMLField=3D NULL;=0A                =
+GetPDMLField(PacketNumber, &quot;proto&quot;, &quot;myfield&quot;, =
+PDMLField, &amp;PDMLField);=0A                =
+=0A</pre></dd></dl></div><p><a =
+name=3D"a3d0872f128b9368bd3f834b5b1324c1"></a></p><div><table><tbody><tr>=
+<td>virtual char* =
+nbPDMLReader::GetLastError</td><td>(</td><td></td><td>=C2=A0)=C2=A0</td><=
+td width=3D"100%"><code>[pure =
+virtual]</code></td></tr></tbody></table></div><div><p>Return a string =
+keeping the last error message that occurred within the current instance =
+of the class.</p><dl compact=3D"compact"><dt><b>Returns:</b></dt><dd>A =
+buffer that keeps the last error message. This buffer will always be =
+NULL terminated.</dd></dl><dl =
+compact=3D"compact"><dt><b>Examples:</b></dt><dd><a =
+href=3D"http://www.nbee.org/exports/nbee/packetdecoder_8cpp-example.htm#a=
+20">packetdecoder.cpp</a>, <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlfieldextractor_8cpp-example.=
+htm#a15">pdmlfieldextractor.cpp</a>, and <a =
+href=3D"http://www.nbee.org/exports/nbee/pdmlreader_8cpp-example.htm#a15"=
+>pdmlreader.cpp</a>.</dd></dl></div><hr>=0AThe documentation for this =
+class was generated from the following =
+file:=0A<ul><li>nbee_pxmlreader.h</li></ul><hr =
+size=3D"1"><address><small>Generated on Thu Nov 8 15:34:52 2007 for nbee =
+by=C2=A0 <a href=3D"http://www.doxygen.org/index.html"><img =
+src=3D"nbPDMLReader Class Reference_files\Image.png" type=3D"image/png" =
+align=3D"middle" alt=3D"doxygen" border=3D"0" =
+style=3D"cursor:default;vertical-align:middle;"/></a> =
+1.5.1</small></address></div></div></html></body>
+
+------=_NextPart_0001_0F14_155C4676.FB6E5940
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: nbPDMLReader Class Reference_files\Image.png
+
+iVBORw0KGgoAAAANSUhEUgAAAGQAAAAtCAMAAABvaz7CAAAABGdBTUEAANbY1E9YMgAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABdUExURQAAAMe+zyImqcjO77a71tPa+pOi
+3qCs4LbC9X+Hp9XZ6snKzuHi5nuO1I2h64iZ16Cy+KesucDAsd3dzvn56fX15+vr5UVEOdfWy2hn
+XR8dE19YPEA6I21oVf///93AfzEAAAAfdFJOU///////////////////////////////////////
+/wDNGXYQAAAD/0lEQVR42mKQQwAGCJCjOgAIIGQjGYSEhYWFaGAJQAChWCIsKioqTANLAAKILpYA
+BBBdLAEIILpYAhBAdLEEIIDoYglAANHFEoAAQrVEhDaWAAQQmiUiIrSwBCCAGJALFJglDAyIEgaZ
+QhQ6SKKIsgjBZkCVAAggiFJQeQIEIhBLYFxQEQNiQyghSQZJIWipAxGF64MogfGEkMQh6gECiAGs
+QwQBhBnEheBsITBbWFxKXBgkA1QIDk0GiCiSPmEGJFOEGJAMBNkCEEAM0KhAUi4kgqwETEpCAlIY
+oolBEMwQRzEKrAsWGMIoRsgBBBCDHNRQaGjBVMADD6IZhCUhHmCAJhBxsCUQdcIMUAcguQaiC6wB
+IIAYILlDVAgYJEKi4HyCwgW6VxQChKQYwGygoyESQmBSBiQoDBYDhRnECIiRksIQnhxAAEHFJcQZ
+GKTEJUAsBiiXAcoVgtoBEgKxJSTB4uJSElBtQiBVYDFJiFlCDAgVIDk5gABcjTECACAIAnlDQxJD
+/39mIltOoCcA3D1UR8iS+GwFOJheS/s1jzzqElOB5lLJpJQl7hNAQAEeIOAGm8oNYjGgccVBFA+P
+EFhIiAcCuIEmgdhCklIgeQkGbpgEUIQBzOOWAhsANEEOIICAarmAgBscPtwgFgOYC3QhmCsoLsjF
+BVcBUQISBrFBMtzcEE0QVdyCkpKCguIMYDGgJWAxBjmAAAJGPAszEAgCY1oQxGAB8wVlIVwWiCBE
+BcgrEC4LODOLs8DkuCFsFllZQSAtCDaCRUqKBaJWDiCAQKmeAwRYWFggNIQP5QrKQDgQNtBgGQgT
+UmQIQrSANEkJIhQC3QkigZZAeHIAAQTKjIIcSICdQRrKEhAQYJdmBwnJyLBDjAYGIlgAVjDJCLKz
+QwxiQDKFnQGsSAqsFsiTAwggcCkhKAAH7IIgnTCONAOIKSglBVLBzgm2BCSAVADKgKXA/mKHGwFi
+gSwBcxnkAALQQAY3AMAgCPzRsILS7j9mpdaXXFBJeCFJtA+mIpSNyIiSM6gKUVmY/3SBXl7b2Gd2
+LSB9PlcAgUpPQVYEYAQDJCYjlAWmBBk4+fj4OBmAXEZGIJtTRkoGJMLGgNDGitAPoRjkAAKIgYGJ
+FMDACzQSqoUByOTlBQkALcGnhwEggBhIsoWBl5+fnxdmCT8c8OI1hAEggBiQazHCAGSJLIzDCbOD
+k4AugAAirUYHmcvLgODxgr3BScgQgAAisdkANBfJSKBneIF8gmYABBCpbRMpKSk5tC4NYU0AAUSD
+BhAmAAggulgCEEB0sQQggOhiCUAA0cUSgACiiyUAAUQXSwACiC6WAAQQXSwBCCC6WAIQQHSxBCCA
+6GIJQIABAGRggsm9U7VPAAAAAElFTkSuQmCC
+
+------=_NextPart_0001_0F14_155C4676.FB6E5940--
+ 

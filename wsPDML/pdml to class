@@ -12,3 +12,22 @@ queue????
 
 
 stack????
+
+
+Queue<T> Class
+.NET Framework 4
+Other Versions
+
+    * .NET Framework 3.5
+    * .NET Framework 3.0
+    * .NET Framework 2.0
+    * Silverlight
+
+Represents a first-in, first-out collection of objects.
+Inheritance Hierarchy
+System.Object
+  System.Collections.Generic.Queue<T>
+
+Namespace:  System.Collections.Generic
+Assembly:  System (in System.dll)
+Syntax

@@ -1,0 +1,55 @@
+I-Logix-RPY-Archive version 8.5.2 * 1159120
+
+- m_fileModifyTime = { IRPYRawContainer 
+	- size = 2;
+	- value = "d:\\tddownload\\c#&c&c++\»\ì\º\Ï\±\à\³\Ì20091013\\base_ethereal_plg\\ethplg.c" 10.18.2009::14:57:0
+	"d:\\tddownload\\c#&c&c++\»\ì\º\Ï\±\à\³\Ì20091013\\base_ethereal_plg\\ethplg.h" 12.21.2005::8:11:8
+	
+}
+- size = 5;
+- hElement = { IHandle 
+	- _m2Class = "ICodeGenConfigInfo";
+	- _filename = "DefaultComponent.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "DefaultComponent\\DefaultConfig";
+	- _id = GUID 753d1538-bd33-4fd3-ba53-63c1cef424a3;
+}
+- genTime = 10.18.2009::15:32:47;
+- hElement = { IHandle 
+	- _m2Class = "IFile";
+	- _filename = "DefaultComponent.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "DefaultComponent\\Files\\time";
+	- _id = GUID 40a3f1a3-d921-4de6-a8d3-ee98982ecd04;
+}
+- genTime = 10.18.2009::15:32:46;
+- hElement = { IHandle 
+	- _m2Class = "IFile";
+	- _filename = "DefaultComponent.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "DefaultComponent\\Files\\windows";
+	- _id = GUID ff0f2ee1-33c6-4179-9971-89a228bb28d9;
+}
+- genTime = 10.18.2009::15:32:47;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "base_ethereal_plg.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "base_ethereal_plg";
+	- _id = GUID e8d31c18-1652-4f49-a4ee-d7e53bf27bdb;
+}
+- genTime = 10.18.2009::15:32:47;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "base_ethereal_plg.sbs";
+	- _subsystem = "base_ethereal_plg";
+	- _class = "TopLevel";
+	- _name = "ethplg";
+	- _id = GUID 81500a60-fc55-49be-9709-d3aa61ad5b53;
+}
+- genTime = 10.18.2009::15:32:47;
+

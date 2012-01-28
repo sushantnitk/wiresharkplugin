@@ -1,0 +1,5 @@
+G:\wiresharkplugin\n\n\b5\bin\Debug\b5.exe
+G:\wiresharkplugin\n\n\b5\bin\Debug\b5.pdb
+G:\wiresharkplugin\n\n\b5\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\wiresharkplugin\n\n\b5\obj\x86\Debug\b5.exe
+G:\wiresharkplugin\n\n\b5\obj\x86\Debug\b5.pdb
